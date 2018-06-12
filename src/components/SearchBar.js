@@ -1,15 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
 import { WHITE } from '../assets/colors'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 const StyledInput = styled.input.attrs({
   type: 'text',
   placeholder: 'Explore your own activities',
 })`
-  width: 232px;
+  width: 300px;
   color: ${WHITE};
   font-size: 20px;
+  margin: 1px;
+  margin-left: 20px;
   border: 0;
   background-color: transparent;
   outline: none;
@@ -22,6 +26,11 @@ const StyledInput = styled.input.attrs({
   }
 `
 
+const StyledSearchIcon = styled(FontAwesomeIcon)`
+  margin-bottom: 1px;
+  font-size: 20px;
+`
+
 const StyledLabel = styled.div`
   width: 388px;
   background-color: transparent;
@@ -32,6 +41,7 @@ const StyledLabel = styled.div`
 const SearchBar = () => {
   return (
     <StyledLabel>
+      <StyledSearchIcon icon={['fas', 'search']} color="white" />
       <StyledInput />
     </StyledLabel>
   )
