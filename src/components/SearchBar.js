@@ -7,12 +7,13 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 const StyledInput = styled.input.attrs({
   type: 'text',
-  placeholder: 'Explore your own activities',
+  placeholder: 'Explore your own news',
 })`
-  width: 300px;
+  width: 348px;
   color: ${WHITE};
   font-size: 20px;
-  margin: 1px;
+  padding: 0;
+  margin-bottom: 5.5px;
   margin-left: 20px;
   border: 0;
   background-color: transparent;
@@ -27,7 +28,7 @@ const StyledInput = styled.input.attrs({
 `
 
 const StyledSearchIcon = styled(FontAwesomeIcon)`
-  margin-bottom: 1px;
+  margin-bottom: 2px;
   font-size: 20px;
 `
 
