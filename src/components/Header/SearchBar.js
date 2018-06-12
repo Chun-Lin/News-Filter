@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { WHITE } from '../assets/colors'
+import { WHITE } from '../../assets/colors'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 const StyledInput = styled.input.attrs({
