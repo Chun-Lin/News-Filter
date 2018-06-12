@@ -6,6 +6,7 @@ import Header from '../components/Header/Header';
 
 const StyledMain = styled.main`
   margin-top: 92px;
+  height: calc(100vh - 92px);
 `
 
 export default class Layout extends Component {
