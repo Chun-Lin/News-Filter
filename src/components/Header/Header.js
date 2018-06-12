@@ -9,6 +9,8 @@ import Logo from '../Header/Logo'
 const StyledHeader = styled.div`
   width: 100%;
   height: 92px;
+  top: 0;
+  left: 0;
   position: fixed;
   background-color: ${PURPLE};
 `
