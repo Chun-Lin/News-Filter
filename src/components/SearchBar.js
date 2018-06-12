@@ -31,8 +31,24 @@ const StyledSearchIcon = styled(FontAwesomeIcon)`
   margin-bottom: 2px;
   font-size: 20px;
 `
+const LayoutBlock = styled.div`
+  vertical-align: top;
+  display: inline-block;
+  width: calc(100vw - 380px);
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+`
 
-const StyledLabel = styled.div`
+const SearchBarWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`
+
+const StyledSearchBar = styled.div`
   width: 388px;
   background-color: transparent;
   box-sizing: border-box;
@@ -41,10 +57,14 @@ const StyledLabel = styled.div`
 
 const SearchBar = () => {
   return (
-    <StyledLabel>
-      <StyledSearchIcon icon={['fas', 'search']} color="white" />
-      <StyledInput />
-    </StyledLabel>
+    <LayoutBlock>
+      <SearchBarWrapper>
+        <StyledSearchBar>
+          <StyledSearchIcon icon={['fas', 'search']} color="white" />
+          <StyledInput />
+        </StyledSearchBar>
+      </SearchBarWrapper>
+    </LayoutBlock>
   )
 }
 

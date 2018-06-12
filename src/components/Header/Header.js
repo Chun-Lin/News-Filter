@@ -4,16 +4,19 @@ import styled from 'styled-components'
 
 import { PURPLE } from '../../assets/colors'
 import SearchBar from '../SearchBar'
+import Logo from '../Logo'
 
 const StyledHeader = styled.div`
   width: 100%;
   height: 92px;
+  position: fixed;
   background-color: ${PURPLE};
 `
 
 const Header = () => {
   return (
     <StyledHeader>
+      <Logo />
       <SearchBar />
     </StyledHeader>
   )
