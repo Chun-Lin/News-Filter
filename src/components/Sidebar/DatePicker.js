@@ -3,9 +3,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import moment from 'moment'
 import 'react-dates/initialize'
-import { DateRangePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
 
+const StyledDatePicker = styled.input`
+  width: 169px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+`
 class DatePicker extends React.Component {
   constructor(props) {
     super(props)
@@ -24,12 +30,7 @@ class DatePicker extends React.Component {
   render() {
     return (
       <div>
-        <DateRangePicker
-          orientation="vertical"
-          horizontalMargin={100}
-          date={this.state.date}
-          onDateChange={date => this.setState({ date })}
-        />
+        <StyledDatePicker type="date" placeholder="Start Date" required/>
       </div>
     )
   }
