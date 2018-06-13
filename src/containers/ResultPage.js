@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import ResultLayout from '../components/ResultPage/ResultLayout'
 import ResultTitle from '../components/ResultPage/ResultTitle'
 import Tag from '../components/ResultPage/Tag'
+import ResultList from '../components/ResultPage/ResultList'
 
 const TagWrapper = styled.div`
   display: flex;
@@ -20,8 +21,13 @@ const ResultPage = () => {
       <TagWrapper>
         <Tag>Business</Tag>
         <Tag>Entertainment</Tag>
-        <Tag>Business</Tag>
+        <Tag>Sports</Tag>
       </TagWrapper>
+      <ResultList />
+      <ResultList />
+      <ResultList />
+      <ResultList />
+      <ResultList />
     </ResultLayout>
   )
 }

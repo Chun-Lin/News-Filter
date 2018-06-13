@@ -8,6 +8,7 @@ import Layout from './containers/Layout'
 import Category from './components/Sidebar/Category'
 import Sidebar from './containers/Sidebar'
 import ResultPage from './containers/ResultPage'
+import 'nodep-date-input-polyfill'
 class App extends Component {
   render() {
     return (

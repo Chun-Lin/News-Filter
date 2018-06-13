@@ -10,6 +10,7 @@
     "country-list": "^1.1.0",
     "gh-pages": "^1.2.0",
     "moment": "^2.22.2",
+    "nodep-date-input-polyfill": "^5.2.0",
     "react": "^16.4.0",
     "react-dates": "^16.7.0",
     "react-dom": "^16.4.0",

@@ -10,6 +10,7 @@ const StyledLayout = styled.div`
   height: calc(100vh - 92px);
   padding-right: 40px;
   background-color: ${LIGHT_GREY};
+  overflow: scroll;
 `
 
 const ResultLayout = ({ children }) => {

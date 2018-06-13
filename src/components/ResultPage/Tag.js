@@ -62,6 +62,8 @@ const Tag = ({ children }) => {
   )
 }
 
-Tag.propTypes = {}
+Tag.propTypes = {
+  children: PropTypes.node
+}
 
 export default Tag
