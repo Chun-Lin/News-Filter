@@ -5,9 +5,10 @@ import { LIGHT_GREY } from '../assets/colors'
 import Location from '../components/Sidebar/Location'
 import Date from '../components/Sidebar/Date'
 import Category from '../components/Sidebar/Category'
+import SidebarLayout from '../components/Sidebar/SidebarLayout';
 
-const LayoutSidebar = styled.div`
-  width: 380px;
+const SidebarWrapper = styled.div`
+  width: 100%;
   height: 100%;
   background-color: ${LIGHT_GREY};
   display: flex;
@@ -16,14 +17,18 @@ const LayoutSidebar = styled.div`
   align-items: center;
 `
 
+
+
 export default class Sidebar extends Component {
   render() {
     return (
-      <LayoutSidebar>
-        <Location />
-        <Date />
-        <Category />
-      </LayoutSidebar>
+      <SidebarLayout>
+        <SidebarWrapper>
+          <Location />
+          <Date />
+          <Category />
+        </SidebarWrapper>
+      </SidebarLayout>
     )
   }
 }

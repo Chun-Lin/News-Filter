@@ -5,12 +5,6 @@ import styled from 'styled-components'
 import countryList from 'country-list'
 import Select from 'react-select'
 
-const StyledSelect = styled(Select)`
-  width: 220px;
-  height: 40px;
-  border-radius: 0;
-`
-
 const customStyles = {
   control: styles => ({
     ...styles,
