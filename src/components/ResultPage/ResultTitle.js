@@ -1,16 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { PURPLE } from '../../assets/colors'
 
-const ResultTitle = () => {
+const StyledTitle = styled.div`
+  margin-top: 24px;
+  font-size: 24px;
+`
+
+const StyledCount = styled.span`
+  color: ${PURPLE};
+  font-weight: bold;
+`
+
+const ResultTitle = ({ resultCount }) => {
   return (
-    <div>
-      <span>Showing {resultCount} results by...</span>
-    </div>
+    <StyledTitle>
+      <span>
+        Showing <StyledCount>{resultCount}</StyledCount> results by...
+      </span>
+    </StyledTitle>
   )
 }
 
 ResultTitle.propTypes = {
-
+  resultCount: PropTypes.number,
 }
 
 export default ResultTitle

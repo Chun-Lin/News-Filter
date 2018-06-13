@@ -7,15 +7,14 @@ import Date from './components/Sidebar/Date'
 import Layout from './containers/Layout'
 import Category from './components/Sidebar/Category'
 import Sidebar from './containers/Sidebar'
+import ResultPage from './containers/ResultPage'
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Layout>
-          {/* <Location />
-          <Date />
-          <Category /> */}
           <Sidebar />
+          <ResultPage />
         </Layout>
       </div>
     )
