@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import moment from 'moment'
-import 'react-dates/initialize'
-import 'react-dates/lib/css/_datepicker.css'
+import dateFns from 'date-fns'
+
+import { MEDIUM_GREY } from '../../assets/colors'
 
 const StyledDatePicker = styled.input`
   width: 169px;
@@ -11,29 +11,29 @@ const StyledDatePicker = styled.input`
   font-size: 16px;
   border: none;
   outline: none;
+
+  &::-webkit-calendar-picker-indicator {
+    font-size: 20px;
+    color: ${MEDIUM_GREY};
+    background-color: transparent;
+  }
+  &::-webkit-datetime-edit {
+    padding: 11px;
+  }
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
 `
-class DatePicker extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      date: moment(),
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(date) {
-    this.setState({
-      startDate: date,
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <StyledDatePicker type="date" placeholder="Start Date" required/>
-      </div>
-    )
-  }
+const DatePicker = () => {
+  return (
+    <div>
+      <StyledDatePicker
+        type="date"
+        value={dateFns.format(new Date(), 'YYYY-MM-DD')}
+      />
+    </div>
+  )
 }
 
 export default DatePicker
