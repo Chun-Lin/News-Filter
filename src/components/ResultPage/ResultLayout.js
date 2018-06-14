@@ -7,9 +7,7 @@ const StyledLayout = styled.div`
   display: inline-block;
   vertical-align: top;
   width: calc(100vw - 380px);
-  ${'' /* height: calc(100vh - 182px); */}
   padding-right: 40px;
-  background-color: ${LIGHT_GREY};
   overflow: scroll;
 `
 

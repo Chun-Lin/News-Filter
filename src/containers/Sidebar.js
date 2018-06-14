@@ -10,7 +10,6 @@ import SidebarLayout from '../components/Sidebar/SidebarLayout';
 const SidebarWrapper = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${LIGHT_GREY};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
