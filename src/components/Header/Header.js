@@ -13,6 +13,7 @@ const StyledHeader = styled.div`
   left: 0;
   position: fixed;
   background-color: ${PURPLE};
+  z-index: 9999;
 `
 
 const Header = () => {

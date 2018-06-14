@@ -17,6 +17,8 @@ const TagWrapper = styled.div`
   flex-wrap: wrap;
 `
 
+;('https://picsum.photos/220/220?random=1')
+
 const ResultPage = () => {
   return (
     <ResultLayout>
@@ -26,11 +28,11 @@ const ResultPage = () => {
         <Tag>Entertainment</Tag>
         <Tag>Sports</Tag>
       </TagWrapper>
-      <ResultList />
-      <ResultList />
-      <ResultList />
-      <ResultList />
-      <ResultList />
+      <ResultList imgSrc="https://picsum.photos/220/220?random=1" />
+      <ResultList imgSrc="https://picsum.photos/220/220?random=2" />
+      <ResultList imgSrc="https://picsum.photos/220/220?random=3" />
+      <ResultList imgSrc="https://picsum.photos/220/220?random=4" />
+      <ResultList imgSrc="https://picsum.photos/220/220?random=5" />
       <PaginationLayout>
         <PaginationItem>
           <FontAwesomeIcon icon="angle-double-left" />

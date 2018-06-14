@@ -91,11 +91,11 @@ const GreyInfo = styled.div`
   margin-right: 20px;
 `
 
-const ResultList = () => {
+const ResultList = ({imgSrc}) => {
   return (
     <StyledResultList>
       <ImgWrapper>
-        <Img src="https://picsum.photos/220/220?random=1" />
+        <Img src={imgSrc} />
       </ImgWrapper>
       <InfoWrapper>
         <Title>Kogi Cosby sweater.</Title>
