@@ -9,10 +9,13 @@ import Category from './components/Sidebar/Category'
 import Sidebar from './containers/Sidebar'
 import ResultPage from './containers/ResultPage'
 import 'nodep-date-input-polyfill'
+import Header from './containers/Header'
+
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <Layout>
           <Sidebar />
           <ResultPage />

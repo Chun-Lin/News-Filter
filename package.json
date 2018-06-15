@@ -7,14 +7,18 @@
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/react-fontawesome": "^0.0.20",
+    "axios": "^0.18.0",
     "country-list": "^1.1.0",
     "date-fns": "^1.29.0",
     "gh-pages": "^1.2.0",
     "nodep-date-input-polyfill": "^5.2.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "react-select": "^2.0.0-beta.6",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^3.3.2"
   },
   "scripts": {

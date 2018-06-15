@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { PURPLE } from '../../assets/colors'
-import SearchBar from '../Header/SearchBar'
-import Logo from '../Header/Logo'
+import { PURPLE } from '../assets/colors'
+import SearchBar from '../components/Header/SearchBar'
+import Logo from '../components/Header/Logo'
 
 const StyledHeader = styled.div`
   width: 100%;
