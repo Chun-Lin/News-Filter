@@ -49,7 +49,7 @@ const Checkbox = ({ name, checked, onChange, children }) => {
       <StyledInput
         type="checkbox"
         name={name}
-        onChange={onChange}
+        onChange={() => {}}
         checked={checked}
       />
       <StyledLabel checked={checked} />

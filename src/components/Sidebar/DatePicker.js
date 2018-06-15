@@ -25,12 +25,13 @@ const StyledDatePicker = styled.input`
     display: none;
   }
 `
-const DatePicker = () => {
+const DatePicker = ({ onChange }) => {
   return (
     <div>
       <StyledDatePicker
         type="date"
         value={dateFns.format(new Date(), 'YYYY-MM-DD')}
+        onChange={() => {}}
       />
     </div>
   )

@@ -17,7 +17,7 @@ const Pagination = ({ pageCount }) => {
         <FontAwesomeIcon icon="angle-double-left" />
       </PaginationItem>
       {paginationItems.map(page => {
-        return <PaginationItem>{page}</PaginationItem>
+        return <PaginationItem key={page}>{page}</PaginationItem>
       })}
       <PaginationItem>
         <FontAwesomeIcon icon="angle-double-right" />
