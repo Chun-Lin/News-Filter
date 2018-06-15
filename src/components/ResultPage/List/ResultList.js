@@ -55,30 +55,28 @@ const LocationTimeLayout = styled.div`
   margin-top: 16px;
 `
 
-const ResultList = ({ imgSrc }) => {
+const ResultList = ({ imgSrc, author, title, description, url, time  }) => {
   return (
     <ResultListLayout>
       <ImgLayout>
         <Img src={imgSrc} />
       </ImgLayout>
       <InfoLayout>
-        <Title>Kogi Cosby sweater.</Title>
+        <Title>{title}</Title>
         <DescriptionLayout>
           <Description>
-            Alias rem et ut et aut aut sunt. Ipsa ut praesentium rerum neque
-            eveniet soluta dolorem. Voluptatem aut accusantium officia
-            inventore.
+           {description}
           </Description>
         </DescriptionLayout>
         <AuthorCategoryLayout>
-          <Author>Maynard Altenwerth IV</Author>
+          <Author>{author}</Author>
           <CategoryLayout>
             <Category>Entertainment</Category>
           </CategoryLayout>
         </AuthorCategoryLayout>
         <LocationTimeLayout>
           <Location>Taipei</Location>
-          <TimeRange>2018/6/15 - 2018/6/16</TimeRange>
+          <TimeRange>{time}</TimeRange>
         </LocationTimeLayout>
       </InfoLayout>
     </ResultListLayout>

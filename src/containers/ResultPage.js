@@ -1,6 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import shortid from 'shortid'
+import connect from 'react-redux/lib/connect/connect'
+import dateFns from 'date-fns'
 
 import ResultLayout from '../components/ResultPage/ResultLayout'
 import ResultCount from '../components/ResultPage/ResultCount'
@@ -16,25 +19,51 @@ const TagLayout = styled.div`
   flex-wrap: wrap;
 `
 
-const ResultPage = () => {
-  return (
-    <ResultLayout>
-      <ResultCount resultCount={15} />
-      <TagLayout>
-        <Tag>Business</Tag>
-        <Tag>Entertainment</Tag>
-        <Tag>Sports</Tag>
-      </TagLayout>
-      <ResultList imgSrc="https://picsum.photos/220/220?random=1" />
-      <ResultList imgSrc="https://picsum.photos/220/220?random=2" />
-      <ResultList imgSrc="https://picsum.photos/220/220?random=3" />
-      <ResultList imgSrc="https://picsum.photos/220/220?random=4" />
-      <ResultList imgSrc="https://picsum.photos/220/220?random=5" />
-      <Pagination pageCount={10} />
-    </ResultLayout>
-  )
+class ResultPage extends Component {
+
+  render() {
+    return (
+      <ResultLayout>
+        <ResultCount resultCount={15} />
+        <TagLayout>
+          <Tag>Business</Tag>
+          <Tag>Entertainment</Tag>
+          <Tag>Sports</Tag>
+        </TagLayout>
+        {this.props.articles.map(article => {
+          const {
+            source,
+            author,
+            title,
+            description,
+            url,
+            urlToImage,
+            publishedAt,
+          } = article
+          
+          const time = dateFns.format(publishedAt, 'YYYY-MM-DD HH:mm')
+          return (
+            <ResultList
+              key={shortid.generate()}
+              imgSrc={urlToImage}
+              author={author}
+              title={title}
+              description={description}
+              url={url}
+              time={time}
+            />
+          )
+        })}
+        <Pagination pageCount={10} />
+      </ResultLayout>
+    )
+  }
 }
 
 ResultPage.propTypes = {}
 
-export default ResultPage
+const mapStateToProps = state => ({
+  articles: state.articles,
+})
+
+export default connect(mapStateToProps)(ResultPage)

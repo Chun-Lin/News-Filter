@@ -62,6 +62,8 @@ class SearchBar extends Component {
 
   changeHandler = value => {
     this.setState({ value })
+    this.props.onSearchNews(value)
+    console.log('test')
   }
 
   render() {
