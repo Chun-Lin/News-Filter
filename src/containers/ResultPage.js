@@ -46,7 +46,7 @@ class ResultPage extends Component {
             <ResultList
               key={shortid.generate()}
               imgSrc={urlToImage}
-              author={author}
+              author={author? author: 'Anonymous'}
               title={title}
               description={description}
               url={url}
