@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -55,17 +55,30 @@ const StyledSearchBar = styled.div`
   border-bottom: 2px solid ${WHITE};
 `
 
-const SearchBar = () => {
-  return (
-    <LayoutBlock>
-      <SearchBarWrapper>
-        <StyledSearchBar>
-          <StyledSearchIcon icon={['fas', 'search']} color="white" />
-          <StyledInput />
-        </StyledSearchBar>
-      </SearchBarWrapper>
-    </LayoutBlock>
-  )
+class SearchBar extends Component {
+  state = {
+    value: '',
+  }
+
+  changeHandler = value => {
+    this.setState({ value })
+  }
+
+  render() {
+    return (
+      <LayoutBlock>
+        <SearchBarWrapper>
+          <StyledSearchBar>
+            <StyledSearchIcon icon={['fas', 'search']} color="white" />
+            <StyledInput
+              value={this.state.value}
+              onChange={event => this.changeHandler(event.target.value)}
+            />
+          </StyledSearchBar>
+        </SearchBarWrapper>
+      </LayoutBlock>
+    )
+  }
 }
 
 SearchBar.propTypes = {}
