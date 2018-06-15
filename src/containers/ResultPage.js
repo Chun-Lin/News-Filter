@@ -20,7 +20,6 @@ const TagLayout = styled.div`
 `
 
 class ResultPage extends Component {
-
   render() {
     return (
       <ResultLayout>
@@ -40,13 +39,13 @@ class ResultPage extends Component {
             urlToImage,
             publishedAt,
           } = article
-          
+
           const time = dateFns.format(publishedAt, 'YYYY-MM-DD HH:mm')
           return (
             <ResultList
               key={shortid.generate()}
               imgSrc={urlToImage}
-              author={author? author: 'Anonymous'}
+              author={author ? author : 'Anonymous'}
               title={title}
               description={description}
               url={url}

@@ -59,7 +59,7 @@ const ResultList = ({ imgSrc, author, title, description, url, time  }) => {
   return (
     <ResultListLayout>
       <ImgLayout>
-        <Img src={imgSrc} />
+        <Img src={imgSrc} alt={title}/>
       </ImgLayout>
       <InfoLayout>
         <Title>{title}</Title>
