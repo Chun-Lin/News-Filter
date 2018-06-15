@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { PURPLE } from '../../assets/colors'
 
-const StyledTitle = styled.div`
+const Layout = styled.div`
   margin-top: 24px;
+`
+
+const StyledFont = styled.span`
   font-size: 24px;
 `
 
@@ -13,18 +16,18 @@ const StyledCount = styled.span`
   font-weight: bold;
 `
 
-const ResultTitle = ({ resultCount }) => {
+const ResultCount = ({ resultCount }) => {
   return (
-    <StyledTitle>
-      <span>
+    <Layout>
+      <StyledFont>
         Showing <StyledCount>{resultCount}</StyledCount> results by...
-      </span>
-    </StyledTitle>
+      </StyledFont>
+    </Layout>
   )
 }
 
-ResultTitle.propTypes = {
+ResultCount.propTypes = {
   resultCount: PropTypes.number,
 }
 
-export default ResultTitle
+export default ResultCount

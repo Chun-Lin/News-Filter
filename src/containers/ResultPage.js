@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import ResultLayout from '../components/ResultPage/ResultLayout'
-import ResultTitle from '../components/ResultPage/ResultTitle'
+import ResultCount from '../components/ResultPage/ResultCount'
 import Tag from '../components/ResultPage/Tag'
 import ResultList from '../components/ResultPage/List/ResultList'
 import PaginationLayout from '../components/Pagination/PaginationLayout'
@@ -17,12 +17,10 @@ const TagWrapper = styled.div`
   flex-wrap: wrap;
 `
 
-;('https://picsum.photos/220/220?random=1')
-
 const ResultPage = () => {
   return (
     <ResultLayout>
-      <ResultTitle resultCount={15} />
+      <ResultCount resultCount={15} />
       <TagWrapper>
         <Tag>Business</Tag>
         <Tag>Entertainment</Tag>
