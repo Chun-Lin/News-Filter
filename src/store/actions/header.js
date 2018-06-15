@@ -10,8 +10,9 @@ const fetchNewsInit = () => ({
   type: FETCH_NEWS_INIT,
 })
 
-const fetchNewsSuccess = articles => ({
+const fetchNewsSuccess = (totalResults,articles) => ({
   type: FETCH_NEWS_SUCCESS,
+  totalResults: totalResults,
   articles: articles,
 })
 
@@ -27,7 +28,7 @@ export const fetchNews = queryString => {
       .get(`?apiKey=${API_KEY}&q=${queryString}`)
       .then(res => {
         console.log(res)
-        dispatch(fetchNewsSuccess(res.data.articles))
+        dispatch(fetchNewsSuccess(res.data.totalResults,res.data.articles))
       })
       .catch(err => {
         dispatch(fetchNewsFail(err))

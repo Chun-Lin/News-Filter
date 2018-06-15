@@ -24,7 +24,7 @@ class ResultPage extends Component {
   render() {
     return (
       <ResultLayout>
-        <ResultCount resultCount={15} />
+        <ResultCount resultCount={this.props.totalResults} />
         <TagLayout>
           <Tag>Business</Tag>
           <Tag>Entertainment</Tag>
@@ -63,6 +63,7 @@ class ResultPage extends Component {
 ResultPage.propTypes = {}
 
 const mapStateToProps = state => ({
+  totalResults: state.totalResults,
   articles: state.articles,
 })
 
