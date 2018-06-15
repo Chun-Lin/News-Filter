@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { LIGHT_GREY } from '../../assets/colors'
 
-const StyledLayout = styled.div`
+const Layout = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -14,7 +13,7 @@ const StyledLayout = styled.div`
 `
 
 const PaginationLayout = ({children}) => {
-  return <StyledLayout>{children}</StyledLayout>
+  return <Layout>{children}</Layout>
 
 }
 
