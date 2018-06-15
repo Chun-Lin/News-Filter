@@ -10,7 +10,7 @@ import PaginationLayout from '../components/Pagination/PaginationLayout'
 import PaginationItem from '../components/Pagination/PaginationItem'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
-const TagWrapper = styled.div`
+const TagLayout = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -21,11 +21,11 @@ const ResultPage = () => {
   return (
     <ResultLayout>
       <ResultCount resultCount={15} />
-      <TagWrapper>
+      <TagLayout>
         <Tag>Business</Tag>
         <Tag>Entertainment</Tag>
         <Tag>Sports</Tag>
-      </TagWrapper>
+      </TagLayout>
       <ResultList imgSrc="https://picsum.photos/220/220?random=1" />
       <ResultList imgSrc="https://picsum.photos/220/220?random=2" />
       <ResultList imgSrc="https://picsum.photos/220/220?random=3" />
