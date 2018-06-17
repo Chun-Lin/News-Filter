@@ -3,6 +3,7 @@ import {
   FETCH_NEWS_INIT,
   QUERY_COUNTRY,
   QUERY_SEARCH,
+  QUERY_CATEGORY,
 } from '../actions/actionTypes'
 import { handleActions } from 'redux-actions'
 
@@ -35,10 +36,15 @@ const reducer = handleActions(
       }
     },
     [QUERY_COUNTRY]: (state, { country }) => {
-
       return {
         ...state,
         queryString: { ...state.queryString, country: country },
+      }
+    },
+    [QUERY_CATEGORY]: (state, { category }) => {
+      return {
+        ...state,
+        queryString: { ...state.queryString, category: category },
       }
     },
   },

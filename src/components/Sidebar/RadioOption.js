@@ -45,13 +45,14 @@ const StyledLabel = styled.label`
   } */};
 `
 
-const RadioOption = ({ name, checked, onChange, children }) => {
+const RadioOption = ({ name, checked, onChange, value, children }) => {
   return (
     <RadioOptionWrapper>
       <StyledInput
         name={name}
-        onChange={() => {}}
+        onChange={onChange}
         checked={checked}
+        value={value}
       />
       <StyledLabel checked={checked} />
       {children}

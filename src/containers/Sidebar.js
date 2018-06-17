@@ -8,7 +8,7 @@ import Category from '../components/Sidebar/Category'
 import SidebarLayout from '../components/Sidebar/SidebarLayout'
 import connect from 'react-redux/lib/connect/connect'
 
-import { queryCountry, fetchNews } from '../store/actions'
+import { queryCountry, queryCategory, fetchNews } from '../store/actions'
 
 const SidebarWrapper = styled.div`
   width: 100%;
@@ -28,7 +28,7 @@ class Sidebar extends Component {
             onSelectCountry={value => this.props.queryCountry(value)}
             fetchNews={fetchNews}
           />
-          <Category />
+          <Category onSelectCategory={value => this.props.queryCategory(value)}/>
         </SidebarWrapper>
       </SidebarLayout>
     )
@@ -37,6 +37,7 @@ class Sidebar extends Component {
 
 const mapDispatchToProps = {
   queryCountry,
+  queryCategory,
   fetchNews,
 }
 

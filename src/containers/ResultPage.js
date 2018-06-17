@@ -24,11 +24,11 @@ class ResultPage extends Component {
     return (
       <ResultLayout>
         <ResultCount resultCount={this.props.totalResults} />
-        <TagLayout>
+        {/* <TagLayout>
           <Tag>Business</Tag>
           <Tag>Entertainment</Tag>
           <Tag>Sports</Tag>
-        </TagLayout>
+        </TagLayout> */}
         {this.props.articles.map(article => {
           const {
             source,
