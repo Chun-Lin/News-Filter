@@ -53,7 +53,8 @@ class ResultPage extends Component {
             />
           )
         })}
-        <Pagination pageCount={10} />
+        {this.props.articles.length !== 0 ? <Pagination pageCount={10} /> : null}
+        
       </ResultLayout>
     )
   }
