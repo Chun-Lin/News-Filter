@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { GREY, MEDIUM_GREY } from '../../assets/colors'
 import Title from './Title'
-import Checkbox from './Checkbox'
+import RadioOption from './RadioOption'
 
 const LayoutCategory = styled.div`
   width: 300px;
@@ -24,13 +24,13 @@ const Category = () => {
     <LayoutCategory>
       <CategoryWrapper>
         <Title>Categories</Title>
-        <Checkbox checked>Business</Checkbox>
-        <Checkbox checked>Entertainment</Checkbox>
-        <Checkbox checked>General</Checkbox>
-        <Checkbox checked>Health</Checkbox>
-        <Checkbox checked>Science</Checkbox>
-        <Checkbox checked>Sports</Checkbox>
-        <Checkbox checked>Technology</Checkbox>
+        <RadioOption checked>Business</RadioOption>
+        <RadioOption checked>Entertainment</RadioOption>
+        <RadioOption checked>General</RadioOption>
+        <RadioOption checked>Health</RadioOption>
+        <RadioOption checked>Science</RadioOption>
+        <RadioOption checked>Sports</RadioOption>
+        <RadioOption checked>Technology</RadioOption>
       </CategoryWrapper>
     </LayoutCategory>
   )

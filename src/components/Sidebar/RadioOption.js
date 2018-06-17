@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { WHITE, PURPLE } from '../../assets/colors'
+import { WHITE, PURPLE, GREY, DEEP_GREY } from '../../assets/colors'
 
-const CheckboxWrapper = styled.div`
+const RadioOptionWrapper = styled.div`
   position: relative;
   height: 16px;
   line-height: 16px;
@@ -11,7 +11,7 @@ const CheckboxWrapper = styled.div`
 `
 
 const StyledInput = styled.input.attrs({
-  type: 'checkbox',
+  type: 'radio',
   name: 'test1',
 })`
   visibility: hidden;
@@ -23,11 +23,13 @@ const StyledLabel = styled.label`
   left: 0;
   width: 16px;
   height: 16px;
-  background-color: ${PURPLE};
+  border-radius: 8px;
+  border: 2px solid ${DEEP_GREY};
+  background-color: ${props => (props.checked ? PURPLE : 'transparent')};
   cursor: pointer;
   margin-right: 6px;
 
-  &:after {
+  ${'' /* &:after {
     content: '';
     position: absolute;
     top: 4px;
@@ -40,29 +42,28 @@ const StyledLabel = styled.label`
     transform: rotate(-45deg);
 
     opacity: ${props => (props.checked ? '1' : '0')};
-  }
+  } */};
 `
 
-const Checkbox = ({ name, checked, onChange, children }) => {
+const RadioOption = ({ name, checked, onChange, children }) => {
   return (
-    <CheckboxWrapper>
+    <RadioOptionWrapper>
       <StyledInput
-        type="checkbox"
         name={name}
         onChange={() => {}}
         checked={checked}
       />
       <StyledLabel checked={checked} />
       {children}
-    </CheckboxWrapper>
+    </RadioOptionWrapper>
   )
 }
 
-Checkbox.propTypes = {
+RadioOption.propTypes = {
   name: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
   children: PropTypes.node,
 }
 
-export default Checkbox
+export default RadioOption
