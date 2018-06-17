@@ -9,7 +9,7 @@ import SidebarLayout from '../components/Sidebar/SidebarLayout';
 
 const SidebarWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 92px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,7 +24,6 @@ export default class Sidebar extends Component {
       <SidebarLayout>
         <SidebarWrapper>
           <Location />
-          <Date />
           <Category />
         </SidebarWrapper>
       </SidebarLayout>
