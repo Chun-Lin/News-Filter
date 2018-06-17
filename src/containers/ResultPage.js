@@ -44,12 +44,14 @@ class ResultPage extends Component {
           return (
             <ResultList
               key={shortid.generate()}
+              source={source}
               imgSrc={urlToImage}
               author={author ? author : 'Anonymous'}
               title={title}
               description={description}
               url={url}
               time={time}
+              location={this.props.location}
             />
           )
         })}
@@ -65,6 +67,7 @@ ResultPage.propTypes = {}
 const mapStateToProps = state => ({
   totalResults: state.totalResults,
   articles: state.articles,
+  location: state.queryString.country.label
 })
 
 export default connect(mapStateToProps)(ResultPage)

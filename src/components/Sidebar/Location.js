@@ -18,7 +18,7 @@ const LocationWrapper = styled.div`
   margin-left: 40px;
 `
 
-const Loaction = () => {
+const Loaction = ({onSelectCountry}) => {
   // const options = countryList().getName('IS')
   // console.log(options)
 
@@ -26,12 +26,14 @@ const Loaction = () => {
     <LayoutLocation>
       <LocationWrapper>
         <Title>Location</Title>
-        <CountrySelector />
+        <CountrySelector onSelectCountry={onSelectCountry}/>
       </LocationWrapper>
     </LayoutLocation>
   )
 }
 
-Loaction.propTypes = {}
+Loaction.propTypes = {
+  onSelectCountry: PropTypes.func,
+}
 
 export default Loaction

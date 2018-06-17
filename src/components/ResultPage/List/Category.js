@@ -7,9 +7,9 @@ const CategoryLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 131px;
   height: 24px;
   border-radius: 12px;
+  padding: 3px 10px;
   background-color: ${MEDIUM_GREY};
 `
 

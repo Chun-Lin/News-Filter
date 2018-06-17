@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -29,10 +29,37 @@ const customStyles = {
   }),
 }
 
-const CountrySelector = () => {
-  const options = countryList().getData()
-  console.log(options)
-  return <Select styles={customStyles} options={options} />
+class CountrySelector extends Component {
+  constructor(props) {
+    super(props)
+
+    this.options = countryList().getData()
+
+    this.state = {
+      options: this.options,
+      value: null,
+    }
+  }
+
+  changeHandler = (value) =>{
+    this.setState({ value })
+    this.props.onSelectCountry(value)
+  }
+
+  render() {
+    const {onSelectCountry} = this.props
+
+    const options = countryList().getData()
+    console.log(options)
+    return (
+      <Select
+        styles={customStyles}
+        options={this.state.options}
+        value={this.state.value}
+        onChange={this.changeHandler}
+      />
+    )
+  }
 }
 
 Select.propTypes = {}

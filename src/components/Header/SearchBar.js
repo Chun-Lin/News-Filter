@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { WHITE } from '../../assets/colors'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import Button from './Button'
 
 const StyledInput = styled.input.attrs({
   type: 'text',
@@ -62,7 +63,7 @@ class SearchBar extends Component {
 
   changeHandler = value => {
     this.setState({ value })
-    this.props.onSearchNews(value)
+    this.props.onQuerySearch(value)
     console.log('test')
   }
 
@@ -77,6 +78,7 @@ class SearchBar extends Component {
               onChange={event => this.changeHandler(event.target.value)}
             />
           </StyledSearchBar>
+          <Button onClick={() =>this.props.fetchNews()}>Search</Button>
         </SearchBarWrapper>
       </LayoutBlock>
     )

@@ -8,7 +8,8 @@ import { PURPLE } from '../assets/colors'
 import SearchBar from '../components/Header/SearchBar'
 import Logo from '../components/Header/Logo'
 
-import { fetchNews } from '../store/actions/index'
+import { querySearch, fetchNews } from '../store/actions/index'
+import Button from '../components/Header/Button'
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -27,13 +28,13 @@ class Header extends Component {
 
   render() {
     const searchNews = _.debounce(value => {
-      this.props.fetchNews(value)
+      this.props.querySearch(value)
     }, 300)
 
     return (
       <StyledHeader>
         <Logo />
-        <SearchBar onSearchNews={searchNews} />
+        <SearchBar onQuerySearch={searchNews} fetchNews={this.props.fetchNews} />
       </StyledHeader>
     )
   }
@@ -42,6 +43,7 @@ class Header extends Component {
 Header.propTypes = {}
 
 const mapDispatchToProps = {
+  querySearch,
   fetchNews,
 }
 

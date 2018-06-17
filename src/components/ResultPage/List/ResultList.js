@@ -55,27 +55,34 @@ const LocationTimeLayout = styled.div`
   margin-top: 16px;
 `
 
-const ResultList = ({ imgSrc, author, title, description, url, time  }) => {
+const ResultList = ({
+  source,
+  imgSrc,
+  author,
+  title,
+  description,
+  url,
+  time,
+  location,
+}) => {
   return (
     <ResultListLayout>
       <ImgLayout>
-        <Img src={imgSrc} alt={title}/>
+        <Img src={imgSrc} alt={title} />
       </ImgLayout>
       <InfoLayout>
         <Title>{title}</Title>
         <DescriptionLayout>
-          <Description>
-           {description}
-          </Description>
+          <Description>{description}</Description>
         </DescriptionLayout>
         <AuthorCategoryLayout>
           <Author>{author}</Author>
           <CategoryLayout>
-            <Category>Entertainment</Category>
+            <Category>{source.name}</Category>
           </CategoryLayout>
         </AuthorCategoryLayout>
         <LocationTimeLayout>
-          <Location>Taipei</Location>
+          <Location>{location}</Location>
           <TimeRange>{time}</TimeRange>
         </LocationTimeLayout>
       </InfoLayout>

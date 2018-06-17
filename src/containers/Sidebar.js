@@ -5,7 +5,10 @@ import { LIGHT_GREY } from '../assets/colors'
 import Location from '../components/Sidebar/Location'
 import Date from '../components/Sidebar/Date'
 import Category from '../components/Sidebar/Category'
-import SidebarLayout from '../components/Sidebar/SidebarLayout';
+import SidebarLayout from '../components/Sidebar/SidebarLayout'
+import connect from 'react-redux/lib/connect/connect'
+
+import { queryCountry, fetchNews } from '../store/actions'
 
 const SidebarWrapper = styled.div`
   width: 100%;
@@ -16,17 +19,28 @@ const SidebarWrapper = styled.div`
   align-items: center;
 `
 
-
-
-export default class Sidebar extends Component {
+class Sidebar extends Component {
   render() {
     return (
       <SidebarLayout>
         <SidebarWrapper>
-          <Location />
+          <Location
+            onSelectCountry={value => this.props.queryCountry(value)}
+            fetchNews={fetchNews}
+          />
           <Category />
         </SidebarWrapper>
       </SidebarLayout>
     )
   }
 }
+
+const mapDispatchToProps = {
+  queryCountry,
+  fetchNews,
+}
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Sidebar)

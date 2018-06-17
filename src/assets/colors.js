@@ -1,5 +1,6 @@
 export const PURPLE = '#7828B4'
 export const LIGHT_PURPLE = '#9013FE'
+export const DEEP_PURPLE = '#66009D'
 export const LIGHT_GREY = '#F2F2F2'
 export const GREY = '#EBEBEB'
 export const MEDIUM_GREY = '#D7D7D7'
