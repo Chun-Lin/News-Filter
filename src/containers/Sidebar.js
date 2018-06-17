@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import connect from 'react-redux/lib/connect/connect'
+
 import { LIGHT_GREY } from '../assets/colors'
 import Location from '../components/Sidebar/Location'
 import Date from '../components/Sidebar/Date'
 import Category from '../components/Sidebar/Category'
 import SidebarLayout from '../components/Sidebar/SidebarLayout'
-import connect from 'react-redux/lib/connect/connect'
+import FilterButton from '../components/Sidebar/FilterButton'
 
 import { queryCountry, queryCategory, fetchNews } from '../store/actions'
 
@@ -29,6 +31,7 @@ class Sidebar extends Component {
             fetchNews={fetchNews}
           />
           <Category onSelectCategory={value => this.props.queryCategory(value)}/>
+          {/* <FilterButton>Filter</FilterButton> */}
         </SidebarWrapper>
       </SidebarLayout>
     )
