@@ -36,7 +36,9 @@ export const fetchNews = () => {
       .get(
         `?apiKey=${API_KEY}&q=${
           queryString.searchTerm
-        }&country=${countryValue}&category=${queryString.category}`,
+        }&country=${countryValue}&category=${queryString.category}&page=${
+          queryString.page
+        }`,
       )
       .then(res => {
         console.log(res)

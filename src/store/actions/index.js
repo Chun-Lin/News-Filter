@@ -4,4 +4,4 @@ export {
   fetchNewsFail,
   fetchNews,
 } from './fetchNews'
-export { querySearch, queryCountry, queryCategory } from './query'
+export { querySearch, queryCountry, queryCategory, queryPage } from './query'

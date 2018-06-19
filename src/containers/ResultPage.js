@@ -7,11 +7,10 @@ import dateFns from 'date-fns'
 
 import ResultLayout from '../components/ResultPage/ResultLayout'
 import ResultCount from '../components/ResultPage/ResultCount'
-import Tag from '../components/ResultPage/Tag'
 import ResultList from '../components/ResultPage/List/ResultList'
 import Pagination from '../components/ResultPage/Pagination/Pagination'
-import Loading from '../components/ResultPage/Lodaing/Loading.js'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import Loading from '../components/ResultPage/Lodaing/Loading'
+import { queryPage } from '../store/actions'
 
 const LoadingLayout = styled.div`
   display: flex;
@@ -59,11 +58,18 @@ class ResultPage extends Component {
       })
     }
 
+    const pageCount = (totalResults / 20).toFixed()
+
     return (
       <ResultLayout>
         <ResultCount resultCount={totalResults} />
         {resultList}
-        {articles.length !== 0 ? <Pagination pageCount={10} /> : null}
+        {articles.length !== 0 ? (
+          <Pagination
+            pageCount={pageCount}
+            pageSelector={() => this.props.queryPage()}
+          />
+        ) : null}
       </ResultLayout>
     )
   }
@@ -77,5 +83,9 @@ const mapStateToProps = state => ({
   location: state.queryString.country.label,
   loading: state.loading,
 })
+
+const mapDispatchToProps = {
+  queryPage,
+}
 
 export default connect(mapStateToProps)(ResultPage)
