@@ -22,19 +22,17 @@ const StyledHeader = styled.div`
 `
 
 class Header extends Component {
-  componentDidMount() {
-    this.props.fetchNews()
-  }
-
   render() {
     const searchNews = _.debounce(value => {
       this.props.querySearch(value)
     }, 300)
 
+    const debounceFetchNews = _.debounce(() => this.props.fetchNews(), 300)
+
     return (
       <StyledHeader>
         <Logo />
-        <SearchBar onQuerySearch={searchNews} fetchNews={this.props.fetchNews} />
+        <SearchBar onQuerySearch={searchNews} fetchNews={debounceFetchNews} />
       </StyledHeader>
     )
   }

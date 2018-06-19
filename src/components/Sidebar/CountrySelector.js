@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -41,13 +41,20 @@ class CountrySelector extends Component {
     }
   }
 
-  changeHandler = (value) =>{
+  changeHandler = value => {
     this.setState({ value })
     this.props.onSelectCountry(value)
   }
 
+  componentDidUpdate(prevState) {
+    if (this.state.value !== prevState.value) {
+      console.log('test')
+      this.props.fetchNews()
+    }
+  }
+
   render() {
-    const {onSelectCountry} = this.props
+    const { onSelectCountry } = this.props
 
     const options = countryList().getData()
     console.log(options)

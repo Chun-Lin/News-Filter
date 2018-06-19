@@ -44,6 +44,13 @@ class Category extends Component {
     this.props.onSelectCategory(event.target.value)
   }
 
+  componentDidUpdate(prevState) {
+    if (this.state.category !== prevState.category) {
+      console.log('test')
+      this.props.fetchNews()
+    }
+  }
+
   render() {
     return (
       <LayoutCategory>

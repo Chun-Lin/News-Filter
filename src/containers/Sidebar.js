@@ -28,12 +28,12 @@ class Sidebar extends Component {
         <SidebarWrapper>
           <Location
             onSelectCountry={value => this.props.queryCountry(value)}
-            fetchNews={fetchNews}
+            fetchNews={() => this.props.fetchNews()}
           />
           <Category
             onSelectCategory={value => this.props.queryCategory(value)}
+            fetchNews={() => this.props.fetchNews()}
           />
-          <FilterButton>Filter</FilterButton>
         </SidebarWrapper>
       </SidebarLayout>
     )

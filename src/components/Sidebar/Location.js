@@ -18,7 +18,7 @@ const LocationWrapper = styled.div`
   margin-left: 40px;
 `
 
-const Loaction = ({onSelectCountry}) => {
+const Loaction = ({ onSelectCountry, fetchNews }) => {
   // const options = countryList().getName('IS')
   // console.log(options)
 
@@ -26,7 +26,10 @@ const Loaction = ({onSelectCountry}) => {
     <LayoutLocation>
       <LocationWrapper>
         <Title>Location</Title>
-        <CountrySelector onSelectCountry={onSelectCountry}/>
+        <CountrySelector
+          onSelectCountry={onSelectCountry}
+          fetchNews={fetchNews}
+        />
       </LocationWrapper>
     </LayoutLocation>
   )
