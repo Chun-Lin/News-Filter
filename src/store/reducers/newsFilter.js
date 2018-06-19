@@ -15,6 +15,7 @@ const initState = {
     country: '',
     category: '',
   },
+  loading: false
 }
 
 const reducer = handleActions(
@@ -23,11 +24,13 @@ const reducer = handleActions(
       ...state,
       articles: [],
       totalResults: 0,
+      loading: true
     }),
     [FETCH_NEWS_SUCCESS]: (state, { totalResults, articles }) => ({
       ...state,
       totalResults: totalResults,
       articles: [...state.articles, ...articles],
+      loading: false
     }),
     [QUERY_SEARCH]: (state, { searchTerm }) => {
       return {

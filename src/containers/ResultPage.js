@@ -10,53 +10,60 @@ import ResultCount from '../components/ResultPage/ResultCount'
 import Tag from '../components/ResultPage/Tag'
 import ResultList from '../components/ResultPage/List/ResultList'
 import Pagination from '../components/ResultPage/Pagination/Pagination'
+import Loading from '../components/ResultPage/Lodaing/Loading.js'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
-const TagLayout = styled.div`
+const LoadingLayout = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  height: 100px;
 `
 
 class ResultPage extends Component {
   render() {
+    const { totalResults, articles, location, loading } = this.props
+
+    let resultList = (
+      <LoadingLayout>
+        <Loading />
+      </LoadingLayout>
+    )
+
+    if (loading === false) {
+      resultList = articles.map(article => {
+        const {
+          source,
+          author,
+          title,
+          description,
+          url,
+          urlToImage,
+          publishedAt,
+        } = article
+
+        const time = dateFns.format(publishedAt, 'YYYY-MM-DD HH:mm')
+        return (
+          <ResultList
+            key={shortid.generate()}
+            source={source}
+            imgSrc={urlToImage}
+            author={author ? author : 'Anonymous'}
+            title={title}
+            description={description}
+            url={url}
+            time={time}
+            location={location}
+          />
+        )
+      })
+    }
+
     return (
       <ResultLayout>
-        <ResultCount resultCount={this.props.totalResults} />
-        {/* <TagLayout>
-          <Tag>Business</Tag>
-          <Tag>Entertainment</Tag>
-          <Tag>Sports</Tag>
-        </TagLayout> */}
-        {this.props.articles.map(article => {
-          const {
-            source,
-            author,
-            title,
-            description,
-            url,
-            urlToImage,
-            publishedAt,
-          } = article
-
-          const time = dateFns.format(publishedAt, 'YYYY-MM-DD HH:mm')
-          return (
-            <ResultList
-              key={shortid.generate()}
-              source={source}
-              imgSrc={urlToImage}
-              author={author ? author : 'Anonymous'}
-              title={title}
-              description={description}
-              url={url}
-              time={time}
-              location={this.props.location}
-            />
-          )
-        })}
-        {this.props.articles.length !== 0 ? <Pagination pageCount={10} /> : null}
-        
+        <ResultCount resultCount={totalResults} />
+        {resultList}
+        {articles.length !== 0 ? <Pagination pageCount={10} /> : null}
       </ResultLayout>
     )
   }
@@ -67,7 +74,8 @@ ResultPage.propTypes = {}
 const mapStateToProps = state => ({
   totalResults: state.totalResults,
   articles: state.articles,
-  location: state.queryString.country.label
+  location: state.queryString.country.label,
+  loading: state.loading,
 })
 
 export default connect(mapStateToProps)(ResultPage)
