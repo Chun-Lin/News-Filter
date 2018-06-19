@@ -1,23 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { PURPLE } from '../../assets/colors'
+import { PURPLE, GREY, DEEP_GREY, DEEP_PURPLE } from '../../assets/colors'
 
 const FilterButtonLayout = styled.div`
-  margin-top: 50px;
-  align-self: flex-end;
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${GREY};
 `
 
 const StyledButton = styled.button`
-  height: 30px;
+  width: 220px;
+  height: 50px;
+  font-size: 20px;
   color: white;
   background-color: ${PURPLE};
+  outline: none;
+
+  &:active {
+    background-color: ${DEEP_PURPLE};
+  }
 `
 
-const FilterButton = ({ children }) => {
+const FilterButton = ({ onClick, children }) => {
   return (
     <FilterButtonLayout>
-      <StyledButton>{children}</StyledButton>
+      <StyledButton onClick={onClick}>{children}</StyledButton>
     </FilterButtonLayout>
   )
 }

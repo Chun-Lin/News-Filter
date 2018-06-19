@@ -30,8 +30,10 @@ class Sidebar extends Component {
             onSelectCountry={value => this.props.queryCountry(value)}
             fetchNews={fetchNews}
           />
-          <Category onSelectCategory={value => this.props.queryCategory(value)}/>
-          {/* <FilterButton>Filter</FilterButton> */}
+          <Category
+            onSelectCategory={value => this.props.queryCategory(value)}
+          />
+          <FilterButton>Filter</FilterButton>
         </SidebarWrapper>
       </SidebarLayout>
     )

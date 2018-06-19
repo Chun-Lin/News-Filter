@@ -67,6 +67,13 @@ class SearchBar extends Component {
     console.log('test')
   }
 
+  // componentDidUpdate(prevState) {
+  //   if (this.state.value !== prevState.value) {
+  //     console.log('test')
+  //     this.props.fetchNews()
+  //   }
+  // }
+
   render() {
     return (
       <LayoutBlock>
@@ -78,7 +85,7 @@ class SearchBar extends Component {
               onChange={event => this.changeHandler(event.target.value)}
             />
           </StyledSearchBar>
-          <Button onClick={() =>this.props.fetchNews()}>Search</Button>
+          <Button onClick={() => this.props.fetchNews()}>Search</Button>
         </SearchBarWrapper>
       </LayoutBlock>
     )

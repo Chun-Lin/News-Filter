@@ -23,7 +23,7 @@ const StyledHeader = styled.div`
 
 class Header extends Component {
   componentDidMount() {
-    // this.props.fetchNews('bitcoin')
+    this.props.fetchNews()
   }
 
   render() {
