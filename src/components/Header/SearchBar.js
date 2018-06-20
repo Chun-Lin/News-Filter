@@ -35,7 +35,7 @@ const StyledSearchIcon = styled(FontAwesomeIcon)`
 const LayoutBlock = styled.div`
   vertical-align: top;
   display: inline-block;
-  width: calc(100vw - 380px);
+  width: calc(100% - 380px);
   height: 100%;
   justify-content: flex-start;
   align-items: center;
