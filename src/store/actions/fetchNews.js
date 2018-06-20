@@ -43,7 +43,7 @@ export const fetchNews = () => {
         dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
       })
       .catch(err => {
-        dispatch(fetchNewsFail(err))
+        dispatch(fetchNewsFail(err.message))
       })
   }
 }
