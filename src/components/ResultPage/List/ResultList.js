@@ -30,7 +30,6 @@ const InfoLayout = styled.div`
   width: calc(100% - 220px);
   height: 100%;
   padding: 24px 20px;
-  overflow: scroll;
 `
 
 const DescriptionLayout = styled.div`
@@ -55,6 +54,10 @@ const LocationTimeLayout = styled.div`
   margin-top: 16px;
 `
 
+const StyledAnchor = styled.a`
+  text-decoration: none;
+`
+
 const ResultList = ({
   source,
   imgSrc,
@@ -67,11 +70,15 @@ const ResultList = ({
 }) => {
   return (
     <ResultListLayout>
-      <ImgLayout>
-        <Img src={imgSrc} alt={title} />
-      </ImgLayout>
+      <StyledAnchor href={url}>
+        <ImgLayout>
+          <Img src={imgSrc} alt={title} />
+        </ImgLayout>
+      </StyledAnchor>
       <InfoLayout>
-        <Title>{title}</Title>
+        <StyledAnchor href={url}>
+          <Title>{title}</Title>
+        </StyledAnchor>
         <DescriptionLayout>
           <Description>{description}</Description>
         </DescriptionLayout>
