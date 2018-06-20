@@ -7,10 +7,25 @@ import './index.css'
 import App from './App'
 
 import fontawesome from '@fortawesome/fontawesome'
-import solid from '@fortawesome/fontawesome-free-solid'
+import {
+  faSearch,
+  faMapMarkerAlt,
+  faCalendarAlt,
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+} from '@fortawesome/fontawesome-free-solid'
 import articleReducer from '../src/store/reducers/newsFilter'
 
-fontawesome.library.add(solid)
+let icons = null
+icons = [
+  faSearch,
+  faMapMarkerAlt,
+  faCalendarAlt,
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+]
+
+fontawesome.library.add(...icons)
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
