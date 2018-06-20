@@ -48,7 +48,6 @@ class CountrySelector extends Component {
 
   componentDidUpdate(prevState) {
     if (this.state.value !== prevState.value) {
-      console.log('test')
       this.props.fetchNews()
     }
   }
@@ -57,7 +56,6 @@ class CountrySelector extends Component {
     const { onSelectCountry } = this.props
 
     const options = countryList().getData()
-    console.log(options)
     return (
       <Select
         styles={customStyles}

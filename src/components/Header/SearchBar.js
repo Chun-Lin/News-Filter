@@ -64,12 +64,10 @@ class SearchBar extends Component {
   changeHandler = value => {
     this.setState({ value })
     this.props.onQuerySearch(value)
-    console.log('test')
   }
 
   componentDidUpdate(prevState) {
     if (this.state.value !== prevState.value) {
-      console.log('test')
       this.props.fetchNews()
     }
   }

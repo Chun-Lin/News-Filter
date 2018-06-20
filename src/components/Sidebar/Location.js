@@ -19,9 +19,6 @@ const LocationWrapper = styled.div`
 `
 
 const Loaction = ({ onSelectCountry, fetchNews }) => {
-  // const options = countryList().getName('IS')
-  // console.log(options)
-
   return (
     <LayoutLocation>
       <LocationWrapper>

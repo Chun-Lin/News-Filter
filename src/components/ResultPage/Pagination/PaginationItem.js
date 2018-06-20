@@ -23,19 +23,15 @@ const StyledItem = styled.div`
 class PaginationItem extends Component {
   clickHandler = () => {
     const { page, onSelectPage, fetchNews } = this.props
-    console.log(page)
     onSelectPage(page)
     fetchNews()
   }
 
   render() {
     const { children, page } = this.props
-    // console.log(page)
     return (
       <Layout>
-        <StyledItem onClick={this.clickHandler}>
-          {children}
-        </StyledItem>
+        <StyledItem onClick={this.clickHandler}>{children}</StyledItem>
       </Layout>
     )
   }

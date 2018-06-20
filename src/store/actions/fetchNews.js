@@ -26,7 +26,6 @@ export const fetchNews = () => {
     dispatch(fetchNewsInit())
 
     const { queryString } = getState()
-    console.log(getState())
 
     let countryValue = ''
     queryString.country.value
@@ -41,7 +40,6 @@ export const fetchNews = () => {
         }`,
       )
       .then(res => {
-        console.log(res)
         dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
       })
       .catch(err => {

@@ -24,7 +24,6 @@ class Pagination extends Component {
           <FontAwesomeIcon icon="angle-double-left" />
         </PaginationItem>
         {paginationItems.map(page => {
-          console.log(page)
           return (
             <PaginationItem
               key={page}

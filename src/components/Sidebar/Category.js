@@ -46,7 +46,6 @@ class Category extends Component {
 
   componentDidUpdate(prevState) {
     if (this.state.category !== prevState.category) {
-      console.log('test')
       this.props.fetchNews()
     }
   }
