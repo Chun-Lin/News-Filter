@@ -15,6 +15,7 @@ const initState = {
     searchTerm: '',
     country: '',
     category: '',
+    page: 1
   },
   loading: false,
 }

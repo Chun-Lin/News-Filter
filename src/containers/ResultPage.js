@@ -10,7 +10,7 @@ import ResultCount from '../components/ResultPage/ResultCount'
 import ResultList from '../components/ResultPage/List/ResultList'
 import Pagination from '../components/ResultPage/Pagination/Pagination'
 import Loading from '../components/ResultPage/Lodaing/Loading'
-import { queryPage } from '../store/actions'
+import { queryPage, fetchNews } from '../store/actions'
 
 const LoadingLayout = styled.div`
   display: flex;
@@ -58,16 +58,17 @@ class ResultPage extends Component {
       })
     }
 
-    const pageCount = (totalResults / 20).toFixed()
+    const pageCount = Number((totalResults / 20).toFixed())
 
     return (
       <ResultLayout>
         <ResultCount resultCount={totalResults} />
-        {resultList}
+        {articles.length !== 0 ? resultList : null}
         {articles.length !== 0 ? (
           <Pagination
             pageCount={pageCount}
-            pageSelector={() => this.props.queryPage()}
+            onSelectPage={page => this.props.queryPage(page)}
+            fetchNews={() => this.props.fetchNews()}
           />
         ) : null}
       </ResultLayout>
@@ -86,6 +87,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   queryPage,
+  fetchNews,
 }
 
-export default connect(mapStateToProps)(ResultPage)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ResultPage)
