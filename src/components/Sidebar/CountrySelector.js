@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import countryList from 'country-list'
 import Select from 'react-select'
@@ -55,7 +54,6 @@ class CountrySelector extends Component {
   render() {
     const { onSelectCountry } = this.props
 
-    const options = countryList().getData()
     return (
       <Select
         styles={customStyles}
@@ -67,6 +65,9 @@ class CountrySelector extends Component {
   }
 }
 
-Select.propTypes = {}
+Select.propTypes = {
+  onSelectCountry: PropTypes.func,
+  fetchNews: PropTypes.func,
+}
 
 export default CountrySelector

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledLayout = styled.div`
+const Layout = styled.div`
   width: 380px;
   height: 100%;
   display: inline-block;
@@ -10,9 +10,11 @@ const StyledLayout = styled.div`
 `
 
 const SidebarLayout = ({ children }) => {
-  return <StyledLayout>{children}</StyledLayout>
+  return <Layout>{children}</Layout>
 }
 
-SidebarLayout.propTypes = {}
+SidebarLayout.propTypes = {
+  children: PropTypes.node,
+}
 
 export default SidebarLayout

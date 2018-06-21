@@ -5,7 +5,7 @@ import { GREY } from '../../assets/colors'
 import CountrySelector from './CountrySelector'
 import Title from './Title'
 
-const LayoutLocation = styled.div`
+const LocationLayout = styled.div`
   width: 300px;
   height: 127px;
   display: flex;
@@ -14,26 +14,27 @@ const LayoutLocation = styled.div`
   background-color: ${GREY};
 `
 
-const LocationWrapper = styled.div`
+const LocationContentLayout = styled.div`
   margin-left: 40px;
 `
 
 const Loaction = ({ onSelectCountry, fetchNews }) => {
   return (
-    <LayoutLocation>
-      <LocationWrapper>
+    <LocationLayout>
+      <LocationContentLayout>
         <Title>Location</Title>
         <CountrySelector
           onSelectCountry={onSelectCountry}
           fetchNews={fetchNews}
         />
-      </LocationWrapper>
-    </LayoutLocation>
+      </LocationContentLayout>
+    </LocationLayout>
   )
 }
 
 Loaction.propTypes = {
   onSelectCountry: PropTypes.func,
+  fetchNews: PropTypes.func,
 }
 
 export default Loaction

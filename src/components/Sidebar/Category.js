@@ -5,7 +5,7 @@ import { GREY, MEDIUM_GREY } from '../../assets/colors'
 import Title from './Title'
 import RadioOption from './RadioOption'
 
-const LayoutCategory = styled.div`
+const CategoryLayout = styled.div`
   width: 300px;
   display: flex;
   justify-content: flex-start;
@@ -15,21 +15,13 @@ const LayoutCategory = styled.div`
   border-top: 3px solid ${MEDIUM_GREY};
 `
 
-const CategoryWrapper = styled.div`
+const CategoryContentLayout = styled.div`
   margin-left: 40px;
-`
-
-const StyledInput = styled.input`
-  margin-right: 8px;
 `
 
 const StyledList = styled.li`
   display: block;
   font-size: 16px;
-`
-
-const StyledUlist = styled.ul`
-  padding: 0;
 `
 
 class Category extends Component {
@@ -51,95 +43,46 @@ class Category extends Component {
   }
 
   render() {
+    const categories = [
+      'business',
+      'entertainment',
+      'general',
+      'health',
+      'science',
+      'sports',
+      'technology',
+    ]
+
+    const radioOptions = categories.map(category => {
+      const optionTitle = category.charAt(0).toUpperCase() + category.slice(1)
+
+      return (
+        <StyledList>
+          <RadioOption
+            value={category}
+            checked={this.state.category === category}
+            onChange={e => this.handleChange(e)}
+          >
+            {optionTitle}
+          </RadioOption>
+        </StyledList>
+      )
+    })
+
     return (
-      <LayoutCategory>
-        <CategoryWrapper>
+      <CategoryLayout>
+        <CategoryContentLayout>
           <Title>Category</Title>
-          <StyledUlist>
-            <StyledList>
-              <label>
-                <StyledInput
-                  type="radio"
-                  value="business"
-                  checked={this.state.category === 'business'}
-                  onChange={e => this.handleChange(e)}
-                />
-                Business
-              </label>
-            </StyledList>
-            <StyledList>
-              <label>
-                <StyledInput
-                  type="radio"
-                  value="entertainment"
-                  checked={this.state.category === 'entertainment'}
-                  onChange={e => this.handleChange(e)}
-                />
-                Entertainment
-              </label>
-            </StyledList>
-            <StyledList>
-              <label>
-                <StyledInput
-                  type="radio"
-                  value="general"
-                  checked={this.state.category === 'general'}
-                  onChange={e => this.handleChange(e)}
-                />
-                General
-              </label>
-            </StyledList>
-            <StyledList>
-              <label>
-                <StyledInput
-                  type="radio"
-                  value="health"
-                  checked={this.state.category === 'health'}
-                  onChange={e => this.handleChange(e)}
-                />
-                Health
-              </label>
-            </StyledList>
-            <StyledList>
-              <label>
-                <StyledInput
-                  type="radio"
-                  value="science"
-                  checked={this.state.category === 'science'}
-                  onChange={e => this.handleChange(e)}
-                />
-                Science
-              </label>
-            </StyledList>
-            <StyledList>
-              <label>
-                <StyledInput
-                  type="radio"
-                  value="sports"
-                  checked={this.state.category === 'sports'}
-                  onChange={e => this.handleChange(e)}
-                />
-                Sports
-              </label>
-            </StyledList>
-            <StyledList>
-              <label>
-                <StyledInput
-                  type="radio"
-                  value="technology"
-                  checked={this.state.category === 'technology'}
-                  onChange={e => this.handleChange(e)}
-                />
-                Technology
-              </label>
-            </StyledList>
-          </StyledUlist>
-        </CategoryWrapper>
-      </LayoutCategory>
+          {radioOptions}
+        </CategoryContentLayout>
+      </CategoryLayout>
     )
   }
 }
 
-Category.propTypes = {}
+Category.PropTypes = {
+  onSelectCategory: PropTypes.func,
+  fetchNews: PropTypes.func,
+}
 
 export default Category
