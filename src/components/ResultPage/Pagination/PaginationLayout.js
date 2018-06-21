@@ -9,17 +9,14 @@ const Layout = styled.div`
   flex-wrap: wrap;
   width: 100%;
   height: 90px;
-
 `
 
-const PaginationLayout = ({children}) => {
+const PaginationLayout = ({ children }) => {
   return <Layout>{children}</Layout>
-
 }
 
 PaginationLayout.propTypes = {
-  children: PropTypes.node
-
+  children: PropTypes.node,
 }
 
 export default PaginationLayout

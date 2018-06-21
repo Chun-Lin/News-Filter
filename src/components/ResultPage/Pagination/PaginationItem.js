@@ -28,7 +28,7 @@ class PaginationItem extends Component {
   }
 
   render() {
-    const { children, page } = this.props
+    const { children } = this.props
     return (
       <Layout>
         <StyledItem onClick={this.clickHandler}>{children}</StyledItem>
@@ -39,6 +39,9 @@ class PaginationItem extends Component {
 
 PaginationItem.propTypes = {
   children: PropTypes.node,
+  page: PropTypes.number,
+  onSelectPage: PropTypes.func,
+  fetchNews: PropTypes.func,
 }
 
 export default PaginationItem
