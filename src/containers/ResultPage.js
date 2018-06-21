@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import shortid from 'shortid'
@@ -10,26 +10,21 @@ import ResultCount from '../components/ResultPage/ResultCount'
 import ResultList from '../components/ResultPage/List/ResultList'
 import Pagination from '../components/ResultPage/Pagination/Pagination'
 import Loading from '../components/ResultPage/Lodaing/Loading'
+import LoadingLayout from '../components/ResultPage/Lodaing/LoadingLayout'
 import { queryPage, fetchNews } from '../store/actions'
-
-const LoadingLayout = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-`
 
 class ResultPage extends Component {
   render() {
     const { totalResults, articles, location, loading } = this.props
 
-    let resultList = (
+    let spinner = (
       <LoadingLayout>
         <Loading />
       </LoadingLayout>
     )
 
-    if (loading === false) {
+    let resultList = <Fragment />
+    if (articles.length !== 0) {
       resultList = articles.map(article => {
         const {
           source,
@@ -63,20 +58,29 @@ class ResultPage extends Component {
     return (
       <ResultLayout>
         <ResultCount resultCount={totalResults} />
-        {articles.length !== 0 ? resultList : null}
+        {loading === true ? spinner : resultList}
         {articles.length !== 0 ? (
           <Pagination
             pageCount={pageCount}
             onSelectPage={page => this.props.queryPage(page)}
             fetchNews={() => this.props.fetchNews()}
           />
-        ) : null}
+        ) : (
+          <Fragment />
+        )}
       </ResultLayout>
     )
   }
 }
 
-ResultPage.propTypes = {}
+ResultPage.propTypes = {
+  totalResults: PropTypes.number,
+  articles: PropTypes.array,
+  location: PropTypes.string,
+  loading: PropTypes.bool,
+  queryPage: PropTypes.func,
+  fetchNews: PropTypes.func,
+}
 
 const mapStateToProps = state => ({
   totalResults: state.totalResults,

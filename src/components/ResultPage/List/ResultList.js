@@ -97,6 +97,15 @@ const ResultList = ({
   )
 }
 
-ResultList.propTypes = {}
+ResultList.propTypes = {
+  source: PropTypes.object,
+  imgSrc: PropTypes.string,
+  author: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  url: PropTypes.string,
+  time: PropTypes.string,
+  location: PropTypes.string,
+}
 
 export default ResultList

@@ -80,6 +80,7 @@ const reducer = (state = initState, action) =>
         return
       case FETCH_NEWS_FAIL:
         draft.error = action.error
+        draft.loading = false
         return
       case QUERY_COUNTRY:
         draft.queryString.country = action.country

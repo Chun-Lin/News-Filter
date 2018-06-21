@@ -14,6 +14,7 @@ const Img = ({ src, alt }) => {
 
 Img.propTypes = {
   src: PropTypes.string,
+  alt: PropTypes.string,
 }
 
 export default Img
