@@ -4,7 +4,30 @@ import styled from 'styled-components'
 
 import { WHITE } from '../../assets/colors'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import Button from './Button'
+
+const SearchBarLayout = styled.div`
+  vertical-align: top;
+  display: inline-block;
+  width: calc(100% - 380px);
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+`
+
+const ContentLayout = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`
+
+const StyledSearchBar = styled.div`
+  width: 388px;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-bottom: 2px solid ${WHITE};
+`
 
 const StyledInput = styled.input.attrs({
   type: 'text',
@@ -32,38 +55,15 @@ const StyledSearchIcon = styled(FontAwesomeIcon)`
   margin-bottom: 2px;
   font-size: 20px;
 `
-const LayoutBlock = styled.div`
-  vertical-align: top;
-  display: inline-block;
-  width: calc(100% - 380px);
-  height: 100%;
-  justify-content: flex-start;
-  align-items: center;
-`
-
-const SearchBarWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`
-
-const StyledSearchBar = styled.div`
-  width: 388px;
-  background-color: transparent;
-  box-sizing: border-box;
-  border-bottom: 2px solid ${WHITE};
-`
 
 class SearchBar extends Component {
   state = {
     value: '',
   }
 
-  changeHandler = value => {
-    this.setState({ value })
-    this.props.onQuerySearch(value)
+  changeHandler = event => {
+    this.setState({ value: event.target.value })
+    this.props.onQuerySearch(event.target.value)
   }
 
   componentDidUpdate(prevState) {
@@ -74,21 +74,24 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <LayoutBlock>
-        <SearchBarWrapper>
+      <SearchBarLayout>
+        <ContentLayout>
           <StyledSearchBar>
             <StyledSearchIcon icon={['fas', 'search']} color="white" />
             <StyledInput
               value={this.state.value}
-              onChange={event => this.changeHandler(event.target.value)}
+              onChange={event => this.changeHandler(event)}
             />
           </StyledSearchBar>
-        </SearchBarWrapper>
-      </LayoutBlock>
+        </ContentLayout>
+      </SearchBarLayout>
     )
   }
 }
 
-SearchBar.propTypes = {}
+SearchBar.propTypes = {
+  onQuerySearch: PropTypes.func,
+  fetchNews: PropTypes.func,
+}
 
 export default SearchBar

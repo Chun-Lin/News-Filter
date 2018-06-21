@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { WHITE } from '../../assets/colors'
 
-const LayoutLogo = styled.div`
+const LogoLayout = styled.div`
   display: inline-block;
   vertical-align: top;
   width: 380px;
@@ -20,14 +20,16 @@ const StyledLogo = styled.div`
   color: ${WHITE};
 `
 
-const Logo = () => {
+const Logo = ({ children }) => {
   return (
-    <LayoutLogo>
-      <StyledLogo>HaveNews</StyledLogo>
-    </LayoutLogo>
+    <LogoLayout>
+      <StyledLogo>{children}</StyledLogo>
+    </LogoLayout>
   )
 }
 
-Logo.propTypes = {}
+Logo.propTypes = {
+  children: PropTypes.node,
+}
 
 export default Logo

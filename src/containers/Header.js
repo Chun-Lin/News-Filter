@@ -9,7 +9,6 @@ import SearchBar from '../components/Header/SearchBar'
 import Logo from '../components/Header/Logo'
 
 import { querySearch, fetchNews } from '../store/actions/index'
-import Button from '../components/Header/Button'
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -31,14 +30,17 @@ class Header extends Component {
 
     return (
       <StyledHeader>
-        <Logo />
+        <Logo>HaveNews</Logo>
         <SearchBar onQuerySearch={searchNews} fetchNews={debounceFetchNews} />
       </StyledHeader>
     )
   }
 }
 
-Header.propTypes = {}
+Header.propTypes = {
+  querySearch: PropTypes.func,
+  fetchNews: PropTypes.func,
+}
 
 const mapDispatchToProps = {
   querySearch,
