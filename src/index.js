@@ -14,7 +14,6 @@ import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
 } from '@fortawesome/fontawesome-free-solid'
-import articleReducer from '../src/store/reducers/newsFilter'
 import fetchNewsReducer from './store/reducers/fetchNewsReducer'
 import queryStringReducer from './store/reducers/queryStringReducer'
 
