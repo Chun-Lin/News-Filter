@@ -25,7 +25,7 @@ export const fetchNews = () => {
   return (dispatch, getState) => {
     dispatch(fetchNewsInit())
 
-    const { queryString } = getState()
+    const { queryString } = getState().query
 
     let countryValue = ''
     queryString.country.value

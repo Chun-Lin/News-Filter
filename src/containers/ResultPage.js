@@ -83,10 +83,10 @@ ResultPage.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  totalResults: state.totalResults,
-  articles: state.articles,
-  location: state.queryString.country.label,
-  loading: state.loading,
+  totalResults: state.fetch.totalResults,
+  articles: state.fetch.articles,
+  location: state.query.queryString.country.label,
+  loading: state.fetch.loading,
 })
 
 const mapDispatchToProps = {
