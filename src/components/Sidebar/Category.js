@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { GREY, MEDIUM_GREY } from '../../assets/colors'
+import { GREY, MEDIUM_GREY } from '../../constants/colors'
 import Title from './Title'
 import RadioOption from './RadioOption'
 

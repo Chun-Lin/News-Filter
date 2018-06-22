@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { PURPLE } from '../../assets/colors'
+import { PURPLE } from '../../constants/colors'
 
 const Layout = styled.div`
   margin-top: 24px;

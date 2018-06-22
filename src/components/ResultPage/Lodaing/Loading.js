@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { bounceIn } from 'react-animations'
-import { PURPLE, WHITE } from '../../../assets/colors'
+import { PURPLE, WHITE } from '../../../constants/colors'
 
 const BounceIn = keyframes`${bounceIn}`
 

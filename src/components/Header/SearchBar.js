@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { WHITE } from '../../assets/colors'
+import { WHITE } from '../../constants/colors'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 const SearchBarLayout = styled.div`

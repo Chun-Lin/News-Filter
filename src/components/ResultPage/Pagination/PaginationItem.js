@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { WHITE, PURPLE } from '../../../assets/colors'
+import { WHITE, PURPLE } from '../../../constants/colors'
 
 const Layout = styled.div`
   width: 41px;

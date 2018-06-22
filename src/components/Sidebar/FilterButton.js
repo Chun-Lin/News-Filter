@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { PURPLE, GREY, DEEP_GREY, DEEP_PURPLE } from '../../assets/colors'
+import { PURPLE, GREY, DEEP_PURPLE } from '../../constants/colors'
 
 const FilterButtonLayout = styled.div`
   width: 300px;

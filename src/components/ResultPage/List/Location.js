@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { DEEP_GREY } from '../../../assets/colors'
+import { DEEP_GREY } from '../../../constants/colors'
 
 const Layout = styled.div`
   margin-right: 20px;

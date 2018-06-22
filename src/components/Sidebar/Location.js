@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { GREY } from '../../assets/colors'
+import { GREY } from '../../constants/colors'
 import CountrySelector from './CountrySelector'
 import Title from './Title'
 

@@ -9,7 +9,7 @@ import Author from './Author'
 import Description from './Description'
 import Title from './Title'
 import Img from './Img'
-import { WHITE } from '../../../assets/colors'
+import { WHITE } from '../../../constants/colors'
 
 const ResultListLayout = styled.div`
   height: 220px;

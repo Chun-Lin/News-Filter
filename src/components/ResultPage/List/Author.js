@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { BLACK } from '../../../assets/colors'
+import { BLACK } from '../../../constants/colors'
 
 const StyledFont = styled.div`
   font-size: 16px;

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 
-import { LIGHT_GREY } from '../assets/colors'
+import { LIGHT_GREY } from '../constants/colors'
 
 const StyledMain = styled.main`
   margin-top: 92px;

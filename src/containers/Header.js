@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
-import { PURPLE } from '../assets/colors'
+import { PURPLE } from '../constants/colors'
 import SearchBar from '../components/Header/SearchBar'
 import Logo from '../components/Header/Logo'
 
