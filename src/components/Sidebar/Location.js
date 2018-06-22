@@ -18,19 +18,17 @@ const LocationContentLayout = styled.div`
   margin-left: 40px;
 `
 
-const Loaction = ({ onSelectCountry, fetchNews }) => {
-  return (
-    <LocationLayout>
-      <LocationContentLayout>
-        <Title>Location</Title>
-        <CountrySelector
-          onSelectCountry={onSelectCountry}
-          fetchNews={fetchNews}
-        />
-      </LocationContentLayout>
-    </LocationLayout>
-  )
-}
+const Loaction = ({ onSelectCountry, fetchNews }) => (
+  <LocationLayout>
+    <LocationContentLayout>
+      <Title>Location</Title>
+      <CountrySelector
+        onSelectCountry={onSelectCountry}
+        fetchNews={fetchNews}
+      />
+    </LocationContentLayout>
+  </LocationLayout>
+)
 
 Loaction.propTypes = {
   onSelectCountry: PropTypes.func,

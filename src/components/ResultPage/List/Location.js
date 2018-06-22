@@ -14,14 +14,12 @@ const GreyInfo = styled.span`
   margin-left: 7px;
 `
 
-const Loaction = ({ children }) => {
-  return (
-    <Layout>
-      <FontAwesomeIcon icon="map-marker-alt" />
-      <GreyInfo>{children}</GreyInfo>
-    </Layout>
-  )
-}
+const Loaction = ({ children }) => (
+  <Layout>
+    <FontAwesomeIcon icon="map-marker-alt" />
+    <GreyInfo>{children}</GreyInfo>
+  </Layout>
+)
 
 Loaction.propTypes = {
   children: PropTypes.node,

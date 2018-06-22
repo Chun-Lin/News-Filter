@@ -11,9 +11,7 @@ const Layout = styled.div`
   height: 90px;
 `
 
-const PaginationLayout = ({ children }) => {
-  return <Layout>{children}</Layout>
-}
+const PaginationLayout = ({ children }) => <Layout>{children}</Layout>
 
 PaginationLayout.propTypes = {
   children: PropTypes.node,

@@ -16,15 +16,13 @@ const StyledCount = styled.span`
   font-weight: bold;
 `
 
-const ResultCount = ({ resultCount }) => {
-  return (
-    <Layout>
-      <StyledFont>
-        Showing <StyledCount>{resultCount}</StyledCount> results by...
-      </StyledFont>
-    </Layout>
-  )
-}
+const ResultCount = ({ resultCount }) => (
+  <Layout>
+    <StyledFont>
+      Showing <StyledCount>{resultCount}</StyledCount> results by...
+    </StyledFont>
+  </Layout>
+)
 
 ResultCount.propTypes = {
   resultCount: PropTypes.number,

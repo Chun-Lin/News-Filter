@@ -20,13 +20,11 @@ const StyledLogo = styled.div`
   color: ${WHITE};
 `
 
-const Logo = ({ children }) => {
-  return (
-    <LogoLayout>
-      <StyledLogo>{children}</StyledLogo>
-    </LogoLayout>
-  )
-}
+const Logo = ({ children }) => (
+  <LogoLayout>
+    <StyledLogo>{children}</StyledLogo>
+  </LogoLayout>
+)
 
 Logo.propTypes = {
   children: PropTypes.node,

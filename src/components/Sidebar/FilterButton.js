@@ -25,13 +25,11 @@ const StyledButton = styled.button`
   }
 `
 
-const FilterButton = ({ onClick, children }) => {
-  return (
-    <FilterButtonLayout>
-      <StyledButton onClick={onClick}>{children}</StyledButton>
-    </FilterButtonLayout>
-  )
-}
+const FilterButton = ({ onClick, children }) => (
+  <FilterButtonLayout>
+    <StyledButton onClick={onClick}>{children}</StyledButton>
+  </FilterButtonLayout>
+)
 
 FilterButton.propTypes = {
   children: PropTypes.node,

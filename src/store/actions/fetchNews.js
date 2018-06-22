@@ -21,29 +21,28 @@ export const fetchNewsFail = err => ({
   error: err,
 })
 
-export const fetchNews = () => {
-  return (dispatch, getState) => {
-    dispatch(fetchNewsInit())
+export const fetchNews = () => (dispatch, getState) => {
+  dispatch(fetchNewsInit())
 
-    const { queryString } = getState().query
+  const { queryString } = getState().query
 
-    let countryValue = ''
-    queryString.country.value
-      ? (countryValue = queryString.country.value.toLowerCase())
-      : (countryValue = '')
-    axios
-      .get(
-        `?apiKey=${API_KEY}&q=${
-          queryString.searchTerm
-        }&country=${countryValue}&category=${queryString.category}&page=${
-          queryString.page
-        }`,
-      )
-      .then(res => {
-        dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
-      })
-      .catch(err => {
-        dispatch(fetchNewsFail(err.message))
-      })
-  }
+  let countryValue = ''
+  queryString.country.value
+    ? (countryValue = queryString.country.value.toLowerCase())
+    : (countryValue = '')
+
+  axios
+    .get(
+      `?apiKey=${API_KEY}&q=${
+        queryString.searchTerm
+      }&country=${countryValue}&category=${queryString.category}&page=${
+        queryString.page
+      }`,
+    )
+    .then(res => {
+      dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
+    })
+    .catch(err => {
+      dispatch(fetchNewsFail(err.message))
+    })
 }

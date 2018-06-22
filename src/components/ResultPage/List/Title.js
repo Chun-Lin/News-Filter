@@ -8,9 +8,7 @@ const StyledFont = styled.div`
   color: ${PURPLE};
 `
 
-const Title = ({ children }) => {
-  return <StyledFont>{children}</StyledFont>
-}
+const Title = ({ children }) => <StyledFont>{children}</StyledFont>
 
 Title.propTypes = {
   children: PropTypes.node,

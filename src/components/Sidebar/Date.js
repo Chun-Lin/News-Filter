@@ -36,27 +36,25 @@ const DatePickerWrapper = styled.div`
   margin-left: 13px;
 `
 
-const Date = () => {
-  return (
-    <LayoutDate>
-      <DateWrapper>
-        <Title>Date</Title>
-        <DateFromWrapper>
-          From
-          <DatePickerWrapper>
-            <DatePicker />
-          </DatePickerWrapper>
-        </DateFromWrapper>
-        <DateToWrapper>
-          To
-          <DatePickerWrapper>
-            <DatePicker />
-          </DatePickerWrapper>
-        </DateToWrapper>
-      </DateWrapper>
-    </LayoutDate>
-  )
-}
+const Date = () => (
+  <LayoutDate>
+    <DateWrapper>
+      <Title>Date</Title>
+      <DateFromWrapper>
+        From
+        <DatePickerWrapper>
+          <DatePicker />
+        </DatePickerWrapper>
+      </DateFromWrapper>
+      <DateToWrapper>
+        To
+        <DatePickerWrapper>
+          <DatePicker />
+        </DatePickerWrapper>
+      </DateToWrapper>
+    </DateWrapper>
+  </LayoutDate>
+)
 
 Date.propTypes = {}
 

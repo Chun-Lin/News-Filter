@@ -14,14 +14,12 @@ const GreyInfo = styled.span`
   margin-left: 7px;
 `
 
-const TimeRange = ({ children }) => {
-  return (
-    <Layout>
-      <FontAwesomeIcon icon="calendar-alt" />
-      <GreyInfo>{children}</GreyInfo>
-    </Layout>
-  )
-}
+const TimeRange = ({ children }) => (
+  <Layout>
+    <FontAwesomeIcon icon="calendar-alt" />
+    <GreyInfo>{children}</GreyInfo>
+  </Layout>
+)
 
 TimeRange.propTypes = {
   children: PropTypes.node,

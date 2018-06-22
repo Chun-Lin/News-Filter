@@ -6,19 +6,17 @@ const StyledInput = styled.input`
   margin-right: 8px;
 `
 
-const RadioOption = ({ checked, onChange, value, children }) => {
-  return (
-    <label>
-      <StyledInput
-        type="radio"
-        value={value}
-        checked={checked}
-        onChange={onChange}
-      />
-      {children}
-    </label>
-  )
-}
+const RadioOption = ({ checked, onChange, value, children }) => (
+  <label>
+    <StyledInput
+      type="radio"
+      value={value}
+      checked={checked}
+      onChange={onChange}
+    />
+    {children}
+  </label>
+)
 
 RadioOption.propTypes = {
   value: PropTypes.string,

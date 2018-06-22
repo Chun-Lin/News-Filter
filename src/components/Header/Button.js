@@ -22,13 +22,11 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ onClick }) => {
-  return (
-    <ButtonLayout>
-      <StyledButton onClick={onClick}>Search</StyledButton>
-    </ButtonLayout>
-  )
-}
+const Button = ({ onClick }) => (
+  <ButtonLayout>
+    <StyledButton onClick={onClick}>Search</StyledButton>
+  </ButtonLayout>
+)
 
 Button.propTypes = {}
 

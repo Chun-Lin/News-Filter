@@ -10,9 +10,7 @@ const StyledFont = styled.div`
   text-overflow: ellipsis;
 `
 
-const Description = ({ children }) => {
-  return <StyledFont>{children}</StyledFont>
-}
+const Description = ({ children }) => <StyledFont>{children}</StyledFont>
 
 Description.propTypes = {
   children: PropTypes.node,

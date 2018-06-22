@@ -9,9 +9,7 @@ const StyledTitle = styled.div`
   font-weight: bold;
 `
 
-const Title = ({ children }) => {
-  return <StyledTitle>{children}</StyledTitle>
-}
+const Title = ({ children }) => <StyledTitle>{children}</StyledTitle>
 
 Title.propTypes = {}
 

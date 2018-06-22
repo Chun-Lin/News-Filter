@@ -26,13 +26,11 @@ const Logo = styled.span`
   animation: ${BounceIn} 1.5s 0s infinite;
 `
 
-const Loading = () => {
-  return (
-    <Background>
-      <Logo>N</Logo>
-    </Background>
-  )
-}
+const Loading = () => (
+  <Background>
+    <Logo>N</Logo>
+  </Background>
+)
 
 Loading.propTypes = {}
 

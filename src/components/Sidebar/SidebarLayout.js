@@ -9,9 +9,7 @@ const Layout = styled.div`
   vertical-align: top;
 `
 
-const SidebarLayout = ({ children }) => {
-  return <Layout>{children}</Layout>
-}
+const SidebarLayout = ({ children }) => <Layout>{children}</Layout>
 
 SidebarLayout.propTypes = {
   children: PropTypes.node,

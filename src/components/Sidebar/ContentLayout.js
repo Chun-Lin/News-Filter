@@ -11,9 +11,7 @@ const Layout = styled.div`
   align-items: center;
 `
 
-const ContentLayout = ({ children }) => {
-  return <Layout>{children}</Layout>
-}
+const ContentLayout = ({ children }) => <Layout>{children}</Layout>
 
 ContentLayout.propTypes = {
   children: PropTypes.node,

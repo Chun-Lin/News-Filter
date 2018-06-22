@@ -11,9 +11,7 @@ const StyledLayout = styled.div`
   overflow: scroll;
 `
 
-const ResultLayout = ({ children }) => {
-  return <StyledLayout>{children}</StyledLayout>
-}
+const ResultLayout = ({ children }) => <StyledLayout>{children}</StyledLayout>
 
 ResultLayout.propTypes = {}
 

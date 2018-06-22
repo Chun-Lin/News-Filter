@@ -9,9 +9,7 @@ const StyledFont = styled.div`
   color: ${BLACK};
 `
 
-const Author = ({ children }) => {
-  return <StyledFont>{children}</StyledFont>
-}
+const Author = ({ children }) => <StyledFont>{children}</StyledFont>
 
 Author.propTypes = {
   children: PropTypes.node,

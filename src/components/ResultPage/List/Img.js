@@ -8,9 +8,7 @@ const StyledImg = styled.img`
   object-fit: cover;
 `
 
-const Img = ({ src, alt }) => {
-  return <StyledImg src={src} alt={alt} />
-}
+const Img = ({ src, alt }) => <StyledImg src={src} alt={alt} />
 
 Img.propTypes = {
   src: PropTypes.string,

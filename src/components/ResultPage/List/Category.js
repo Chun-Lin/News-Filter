@@ -19,13 +19,11 @@ const StyledFont = styled.div`
   color: ${WHITE};
 `
 
-const Category = ({ children }) => {
-  return (
-    <CategoryLayout>
-      <StyledFont>{children}</StyledFont>
-    </CategoryLayout>
-  )
-}
+const Category = ({ children }) => (
+  <CategoryLayout>
+    <StyledFont>{children}</StyledFont>
+  </CategoryLayout>
+)
 
 Category.propTypes = {
   children: PropTypes.node,

@@ -51,19 +51,17 @@ const TagColor = styled.span`
   color: ${PURPLE};
 `
 
-const Tag = ({ children }) => {
-  return (
-    <StyledTag>
-      <TagColor>{children}</TagColor>
-      <CancelButton>
-        <Cross />
-      </CancelButton>
-    </StyledTag>
-  )
-}
+const Tag = ({ children }) => (
+  <StyledTag>
+    <TagColor>{children}</TagColor>
+    <CancelButton>
+      <Cross />
+    </CancelButton>
+  </StyledTag>
+)
 
 Tag.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default Tag

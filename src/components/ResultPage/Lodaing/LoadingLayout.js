@@ -9,9 +9,7 @@ const Layout = styled.div`
   height: 100px;
 `
 
-const LoadingLayout = ({ children }) => {
-  return <Layout>{children}</Layout>
-}
+const LoadingLayout = ({ children }) => <Layout>{children}</Layout>
 
 LoadingLayout.propTypes = {
   children: PropTypes.node,

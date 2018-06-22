@@ -31,18 +31,16 @@ const Pagination = ({ pageCount, onSelectPage, fetchNews }) => {
     </PaginationItem>
   )
 
-  const pages = paginationItems.map(page => {
-    return (
-      <PaginationItem
-        key={page}
-        page={page}
-        onSelectPage={onSelectPage}
-        fetchNews={fetchNews}
-      >
-        {page}
-      </PaginationItem>
-    )
-  })
+  const pages = paginationItems.map(page => (
+    <PaginationItem
+      key={page}
+      page={page}
+      onSelectPage={onSelectPage}
+      fetchNews={fetchNews}
+    >
+      {page}
+    </PaginationItem>
+  ))
 
   return (
     <PaginationLayout>

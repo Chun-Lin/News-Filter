@@ -67,35 +67,33 @@ const ResultList = ({
   url,
   time,
   location,
-}) => {
-  return (
-    <ResultListLayout>
+}) => (
+  <ResultListLayout>
+    <StyledAnchor href={url}>
+      <ImgLayout>
+        <Img src={imgSrc} alt={title} />
+      </ImgLayout>
+    </StyledAnchor>
+    <InfoLayout>
       <StyledAnchor href={url}>
-        <ImgLayout>
-          <Img src={imgSrc} alt={title} />
-        </ImgLayout>
+        <Title>{title}</Title>
       </StyledAnchor>
-      <InfoLayout>
-        <StyledAnchor href={url}>
-          <Title>{title}</Title>
-        </StyledAnchor>
-        <DescriptionLayout>
-          <Description>{description}</Description>
-        </DescriptionLayout>
-        <AuthorCategoryLayout>
-          <Author>{author}</Author>
-          <CategoryLayout>
-            <Category>{source.name}</Category>
-          </CategoryLayout>
-        </AuthorCategoryLayout>
-        <LocationTimeLayout>
-          <Location>{location}</Location>
-          <TimeRange>{time}</TimeRange>
-        </LocationTimeLayout>
-      </InfoLayout>
-    </ResultListLayout>
-  )
-}
+      <DescriptionLayout>
+        <Description>{description}</Description>
+      </DescriptionLayout>
+      <AuthorCategoryLayout>
+        <Author>{author}</Author>
+        <CategoryLayout>
+          <Category>{source.name}</Category>
+        </CategoryLayout>
+      </AuthorCategoryLayout>
+      <LocationTimeLayout>
+        <Location>{location}</Location>
+        <TimeRange>{time}</TimeRange>
+      </LocationTimeLayout>
+    </InfoLayout>
+  </ResultListLayout>
+)
 
 ResultList.propTypes = {
   source: PropTypes.object,
