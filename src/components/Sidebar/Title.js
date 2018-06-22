@@ -11,6 +11,8 @@ const StyledTitle = styled.div`
 
 const Title = ({ children }) => <StyledTitle>{children}</StyledTitle>
 
-Title.propTypes = {}
+Title.propTypes = {
+  children: PropTypes.node,
+}
 
 export default Title

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { bounceIn } from 'react-animations'
 import { PURPLE, WHITE } from '../../../assets/colors'
@@ -31,7 +30,5 @@ const Loading = () => (
     <Logo>N</Logo>
   </Background>
 )
-
-Loading.propTypes = {}
 
 export default Loading

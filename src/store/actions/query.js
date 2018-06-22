@@ -1,4 +1,3 @@
-import axios from '../../axiosInstance'
 import {
   QUERY_COUNTRY,
   QUERY_SEARCH,

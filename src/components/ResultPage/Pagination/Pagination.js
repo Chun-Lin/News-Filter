@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import PaginationLayout from './PaginationLayout'
 import PaginationItem from './PaginationItem'

@@ -52,8 +52,6 @@ class CountrySelector extends Component {
   }
 
   render() {
-    const { onSelectCountry } = this.props
-
     return (
       <Select
         styles={customStyles}

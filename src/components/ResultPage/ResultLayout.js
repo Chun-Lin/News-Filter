@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { LIGHT_GREY } from '../../assets/colors'
 
 const StyledLayout = styled.div`
   display: inline-block;
@@ -13,6 +12,8 @@ const StyledLayout = styled.div`
 
 const ResultLayout = ({ children }) => <StyledLayout>{children}</StyledLayout>
 
-ResultLayout.propTypes = {}
+ResultLayout.propTypes = {
+  children: PropTypes.node,
+}
 
 export default ResultLayout
