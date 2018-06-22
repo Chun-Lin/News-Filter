@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import shortid from 'shortid'
 import connect from 'react-redux/lib/connect/connect'
 import dateFns from 'date-fns'
@@ -17,15 +16,16 @@ class ResultPage extends Component {
   render() {
     const { totalResults, articles, location, loading } = this.props
 
-    let spinner = (
+    const spinner = (
       <LoadingLayout>
         <Loading />
       </LoadingLayout>
     )
 
     let resultList = <Fragment />
-    if (articles.length !== 0) {
-      resultList = articles.map(article => {
+    resultList =
+      articles.length !== 0 &&
+      articles.map(article => {
         const {
           source,
           author,
@@ -51,7 +51,6 @@ class ResultPage extends Component {
           />
         )
       })
-    }
 
     const pageCount = Number((totalResults / 20).toFixed())
 
@@ -59,14 +58,12 @@ class ResultPage extends Component {
       <ResultLayout>
         <ResultCount resultCount={totalResults} />
         {loading === true ? spinner : resultList}
-        {articles.length !== 0 ? (
+        {articles.length !== 0 && (
           <Pagination
             pageCount={pageCount}
             onSelectPage={page => this.props.queryPage(page)}
             fetchNews={() => this.props.fetchNews()}
           />
-        ) : (
-          <Fragment />
         )}
       </ResultLayout>
     )
