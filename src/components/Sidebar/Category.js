@@ -57,7 +57,7 @@ class Category extends Component {
       const optionTitle = category.charAt(0).toUpperCase() + category.slice(1)
 
       return (
-        <StyledList>
+        <StyledList key={category}>
           <RadioOption
             value={category}
             checked={this.state.category === category}
@@ -80,7 +80,7 @@ class Category extends Component {
   }
 }
 
-Category.PropTypes = {
+Category.propTypes = {
   onSelectCategory: PropTypes.func,
   fetchNews: PropTypes.func,
 }
