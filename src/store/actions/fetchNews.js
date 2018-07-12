@@ -1,4 +1,5 @@
 import axios from '../../axiosInstance'
+import qs from 'query-string'
 import { API_KEY } from '../../constants/index'
 import {
   FETCH_NEWS_INIT,
@@ -21,28 +22,29 @@ export const fetchNewsFail = err => ({
   error: err,
 })
 
-export const fetchNews = () => (dispatch, getState) => {
+export const fetchNews = () => async (dispatch, getState) => {
   dispatch(fetchNewsInit())
 
-  const { queryString } = getState().query
+  const { searchTerm, country, category, page } = getState().query.queryString
 
-  let countryValue = ''
-  queryString.country.value
-    ? (countryValue = queryString.country.value.toLowerCase())
-    : (countryValue = '')
+  console.log(getState().query.queryString)
 
-  axios
-    .get(
-      `?apiKey=${API_KEY}&q=${
-        queryString.searchTerm
-      }&country=${countryValue}&category=${queryString.category}&page=${
-        queryString.page
-      }`,
-    )
-    .then(res => {
-      dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
-    })
-    .catch(err => {
-      dispatch(fetchNewsFail(err.message))
-    })
+  const queryObject = {
+    apiKey: API_KEY || undefined,
+    q: searchTerm || undefined,
+    country: country ? country.value.toLowerCase() : undefined,
+    category: category || undefined,
+    page: page || undefined,
+  }
+
+  const queryStringified = qs.stringify(queryObject)
+  const queryString = ['?', queryStringified].join('')
+  console.log(queryString)
+
+  try {
+    const res = await axios.get(queryString)
+    dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
+  } catch (err) {
+    dispatch(fetchNewsFail(err.message))
+  }
 }
