@@ -5,6 +5,7 @@ import {
   FETCH_NEWS_INIT,
   FETCH_NEWS_SUCCESS,
   FETCH_NEWS_FAIL,
+  FETCH_NEWS_HIDE_LOADING,
 } from './actionTypes'
 
 export const fetchNewsInit = () => ({
@@ -20,6 +21,11 @@ export const fetchNewsSuccess = (totalResults, articles) => ({
 export const fetchNewsFail = err => ({
   type: FETCH_NEWS_FAIL,
   error: err,
+})
+
+export const fetchNewsHideLoading = () => ({
+  type: FETCH_NEWS_HIDE_LOADING,
+  loading: false,
 })
 
 export const fetchNews = () => async (dispatch, getState) => {
@@ -46,5 +52,7 @@ export const fetchNews = () => async (dispatch, getState) => {
     dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
   } catch (err) {
     dispatch(fetchNewsFail(err.message))
+  } finally {
+    dispatch(fetchNewsHideLoading())
   }
 }
