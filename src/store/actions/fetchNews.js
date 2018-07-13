@@ -39,6 +39,7 @@ export const fetchNews = () => async (dispatch, getState) => {
   const queryStringified = qs.stringify(queryObject)
   const queryString = ['?', queryStringified].join('')
 
+  console.log(queryString)
   try {
     const res = await axios.get(queryString)
     dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))

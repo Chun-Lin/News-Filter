@@ -9,7 +9,7 @@ import { PURPLE } from '../constants/colors'
 import SearchBar from '../components/Header/SearchBar'
 import Logo from '../components/Header/Logo'
 
-import { querySearch, fetchNews } from '../store/actions/index'
+import { querySearch, fetchNews, query } from '../store/actions/index'
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const StyledHeader = styled.div`
 class Header extends Component {
   render() {
     const searchNews = _.debounce(value => {
-      this.props.querySearch(value)
+      this.props.query('searchTerm', value)
     }, 300)
 
     const debounceFetchNews = _.debounce(() => this.props.fetchNews(), 300)
@@ -46,18 +46,11 @@ Header.propTypes = {
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      querySearch,
+      query,
       fetchNews,
     },
     dispatch,
   )
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onQuerySearch: value => dispatch(querySearch(value)),
-//     onFetchNews: () => dispatch(fetchNews()),
-//   }
-// }
 
 export default connect(
   null,

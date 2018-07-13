@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import connect from 'react-redux/lib/connect/connect'
+import { bindActionCreators } from 'redux'
 
 import Location from '../components/Sidebar/Location'
 import Category from '../components/Sidebar/Category'
-
-import { queryCountry, queryCategory, fetchNews } from '../store/actions'
+import { query, fetchNews } from '../store/actions'
 import SidebarLayout from '../components/Sidebar/SidebarLayout'
 import ContentLayout from '../components/Sidebar/ContentLayout'
 
@@ -14,11 +14,11 @@ class Sidebar extends Component {
       <SidebarLayout>
         <ContentLayout>
           <Location
-            onSelectCountry={value => this.props.queryCountry(value)}
+            onSelectCountry={value => this.props.query('country', value)}
             fetchNews={() => this.props.fetchNews()}
           />
           <Category
-            onSelectCategory={value => this.props.queryCategory(value)}
+            onSelectCategory={value => this.props.query('category', value)}
             fetchNews={() => this.props.fetchNews()}
           />
         </ContentLayout>
@@ -27,11 +27,14 @@ class Sidebar extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  queryCountry,
-  queryCategory,
-  fetchNews,
-}
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      query,
+      fetchNews,
+    },
+    dispatch,
+  )
 
 export default connect(
   null,

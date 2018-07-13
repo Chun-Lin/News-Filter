@@ -6,6 +6,7 @@ export const QUERY_SEARCH = 'QUERY_SEARCH'
 export const QUERY_COUNTRY = 'QUERY_COUNTRY'
 export const QUERY_CATEGORY = 'QUERY_CATEGORY'
 export const QUERY_PAGE = 'QUERY_PAGE'
+export const QUERY = 'QUERY'
 
 export const LOADING_SHOW = 'LOADING_SHOW'
 export const LOADING_HIDE = 'LOADING_HIDE'

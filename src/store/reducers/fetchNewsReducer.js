@@ -19,9 +19,6 @@ const fetchNewsReducer = handleActions(
       draft.totalResults = initState.totalResults
       draft.error = initState.error
     }),
-    // [FETCH_NEWS_HIDE_LOADING]: produce(draft => {
-    //   draft.loading = false
-    // }),
     [FETCH_NEWS_SUCCESS]: produce((draft, { totalResults, articles }) => {
       draft.totalResults = totalResults
       draft['articles'] = [...draft.articles, ...articles]
