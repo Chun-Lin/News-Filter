@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import _ from 'lodash'
 
 import { PURPLE } from '../constants/colors'
@@ -42,10 +43,21 @@ Header.propTypes = {
   fetchNews: PropTypes.func,
 }
 
-const mapDispatchToProps = {
-  querySearch,
-  fetchNews,
-}
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      querySearch,
+      fetchNews,
+    },
+    dispatch,
+  )
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onQuerySearch: value => dispatch(querySearch(value)),
+//     onFetchNews: () => dispatch(fetchNews()),
+//   }
+// }
 
 export default connect(
   null,

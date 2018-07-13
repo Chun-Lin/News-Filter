@@ -1,12 +1,12 @@
 import axios from '../../axiosInstance'
 import qs from 'query-string'
-import { API_KEY } from '../../constants/index'
+import { API_KEY } from '../../constants'
 import {
   FETCH_NEWS_INIT,
   FETCH_NEWS_SUCCESS,
   FETCH_NEWS_FAIL,
-  FETCH_NEWS_HIDE_LOADING,
 } from './actionTypes'
+import { loadingHide, loadingShow } from './sharedAction'
 
 export const fetchNewsInit = () => ({
   type: FETCH_NEWS_INIT,
@@ -23,17 +23,10 @@ export const fetchNewsFail = err => ({
   error: err,
 })
 
-export const fetchNewsHideLoading = () => ({
-  type: FETCH_NEWS_HIDE_LOADING,
-  loading: false,
-})
-
 export const fetchNews = () => async (dispatch, getState) => {
   dispatch(fetchNewsInit())
-
+  dispatch(loadingShow())
   const { searchTerm, country, category, page } = getState().query.queryString
-
-  console.log(getState().query.queryString)
 
   const queryObject = {
     apiKey: API_KEY || undefined,
@@ -45,7 +38,6 @@ export const fetchNews = () => async (dispatch, getState) => {
 
   const queryStringified = qs.stringify(queryObject)
   const queryString = ['?', queryStringified].join('')
-  console.log(queryString)
 
   try {
     const res = await axios.get(queryString)
@@ -53,6 +45,6 @@ export const fetchNews = () => async (dispatch, getState) => {
   } catch (err) {
     dispatch(fetchNewsFail(err.message))
   } finally {
-    dispatch(fetchNewsHideLoading())
+    dispatch(loadingHide())
   }
 }

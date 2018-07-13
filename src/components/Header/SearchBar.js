@@ -17,7 +17,7 @@ class SearchBar extends Component {
 
   componentDidUpdate(prevState) {
     if (this.state.value !== prevState.value) {
-      this.props.fetchNews()
+      console.log(this.props.fetchNews())
     }
   }
 

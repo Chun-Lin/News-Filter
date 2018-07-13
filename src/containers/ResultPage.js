@@ -83,7 +83,7 @@ const mapStateToProps = state => ({
   totalResults: state.fetch.totalResults,
   articles: state.fetch.articles,
   location: state.query.queryString.country.label,
-  loading: state.fetch.loading,
+  loading: state.shared.loading,
 })
 
 const mapDispatchToProps = {

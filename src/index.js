@@ -16,6 +16,7 @@ import {
 } from '@fortawesome/fontawesome-free-solid'
 import fetchNewsReducer from './store/reducers/fetchNewsReducer'
 import queryStringReducer from './store/reducers/queryStringReducer'
+import sharedReducer from './store/reducers/sharedReducer'
 
 let icons = null
 icons = [
@@ -36,6 +37,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const rootReducer = combineReducers({
   fetch: fetchNewsReducer,
   query: queryStringReducer,
+  shared: sharedReducer,
 })
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
