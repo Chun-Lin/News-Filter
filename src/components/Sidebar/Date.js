@@ -5,7 +5,28 @@ import styled from 'styled-components'
 import Title from './Title'
 
 import { GREY, MEDIUM_GREY } from '../../assets/colors'
-const LayoutDate = styled.div`
+
+const Date = ({ className }) => (
+  <div className={className}>
+    <div className="date--layout">
+      <Title>Date</Title>
+      <div className="date__from--layout">
+        From
+        <div className="date-picker--layout">
+          <DatePicker />
+        </div>
+      </div>
+      <div className="date__to--layout">
+        To
+        <div className="date-picker--layout">
+          <DatePicker />
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
+const StyledDate = styled(Date)`
   width: 300px;
   height: 187px;
   display: flex;
@@ -13,49 +34,31 @@ const LayoutDate = styled.div`
   align-items: center;
   background-color: ${GREY};
   border-top: 3px solid ${MEDIUM_GREY};
+
+  .date--layout {
+    margin-left: 40px;
+
+    .date__from--layout {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .date__to--layout {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 8px;
+    }
+  }
+
+  .date-picker--layout {
+    margin-left: 13px;
+  }
 `
 
-const DateWrapper = styled.div`
-  margin-left: 40px;
-`
+Date.propTypes = {
+  className: PropTypes.string,
+}
 
-const DateFromWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`
-
-const DateToWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 8px;
-`
-
-const DatePickerWrapper = styled.div`
-  margin-left: 13px;
-`
-
-const Date = () => (
-  <LayoutDate>
-    <DateWrapper>
-      <Title>Date</Title>
-      <DateFromWrapper>
-        From
-        <DatePickerWrapper>
-          <DatePicker />
-        </DatePickerWrapper>
-      </DateFromWrapper>
-      <DateToWrapper>
-        To
-        <DatePickerWrapper>
-          <DatePicker />
-        </DatePickerWrapper>
-      </DateToWrapper>
-    </DateWrapper>
-  </LayoutDate>
-)
-
-Date.propTypes = {}
-
-export default Date
+export default StyledDate

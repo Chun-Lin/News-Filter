@@ -2,13 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledInput = styled.input`
-  margin-right: 8px;
-`
-
 const RadioOption = ({ checked, onChange, value, children }) => (
   <label>
-    <StyledInput
+    <input
+      className="input__radio--layout"
       type="radio"
       value={value}
       checked={checked}
@@ -18,6 +15,12 @@ const RadioOption = ({ checked, onChange, value, children }) => (
   </label>
 )
 
+const StyledRadioOption = styled(RadioOption)`
+  .input__radio--layout {
+    margin-right: 8px;
+  }
+`
+
 RadioOption.propTypes = {
   value: PropTypes.string,
   checked: PropTypes.bool,
@@ -25,4 +28,4 @@ RadioOption.propTypes = {
   children: PropTypes.node,
 }
 
-export default RadioOption
+export default StyledRadioOption

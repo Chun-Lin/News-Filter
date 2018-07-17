@@ -5,25 +5,6 @@ import { GREY, MEDIUM_GREY } from '../../constants/colors'
 import Title from './Title'
 import RadioOption from './RadioOption'
 
-const CategoryLayout = styled.div`
-  width: 300px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: ${GREY};
-  padding: 25px 0;
-  border-top: 3px solid ${MEDIUM_GREY};
-`
-
-const CategoryContentLayout = styled.div`
-  margin-left: 40px;
-`
-
-const StyledList = styled.li`
-  display: block;
-  font-size: 16px;
-`
-
 class Category extends Component {
   state = {
     category: '',
@@ -57,7 +38,7 @@ class Category extends Component {
       const optionTitle = category.charAt(0).toUpperCase() + category.slice(1)
 
       return (
-        <StyledList key={category}>
+        <li className="category__list" key={category}>
           <RadioOption
             value={category}
             checked={this.state.category === category}
@@ -65,24 +46,44 @@ class Category extends Component {
           >
             {optionTitle}
           </RadioOption>
-        </StyledList>
+        </li>
       )
     })
 
+    const { className } = this.props
     return (
-      <CategoryLayout>
-        <CategoryContentLayout>
+      <div className={className}>
+        <div className="category__content--layout">
           <Title>Category</Title>
           {radioOptions}
-        </CategoryContentLayout>
-      </CategoryLayout>
+        </div>
+      </div>
     )
   }
 }
+
+const StyledCategory = styled(Category)`
+  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: ${GREY};
+  padding: 25px 0;
+  border-top: 3px solid ${MEDIUM_GREY};
+
+  .category__content--layout {
+    margin-left: 40px;
+
+    .category__list {
+      display: block;
+      font-size: 16px;
+    }
+  }
+`
 
 Category.propTypes = {
   onSelectCategory: PropTypes.func,
   fetchNews: PropTypes.func,
 }
 
-export default Category
+export default StyledCategory

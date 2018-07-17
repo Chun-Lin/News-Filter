@@ -1,37 +1,47 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import dateFns from 'date-fns'
 
 import { MEDIUM_GREY } from '../../assets/colors'
 
-const StyledDatePicker = styled.input`
-  width: 169px;
-  height: 40px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-
-  &::-webkit-calendar-picker-indicator {
-    font-size: 20px;
-    color: ${MEDIUM_GREY};
-    background-color: transparent;
-  }
-  &::-webkit-datetime-edit {
-    padding: 11px;
-  }
-
-  &::-webkit-inner-spin-button {
-    display: none;
-  }
-`
-const DatePicker = ({ onChange }) => (
-  <div>
-    <StyledDatePicker
+const DatePicker = ({ onChange, className }) => (
+  <div className={className}>
+    <input
+      className="date-picker__input"
       type="date"
       value={dateFns.format(new Date(), 'YYYY-MM-DD')}
-      onChange={() => {}}
+      onChange={onChange}
     />
   </div>
 )
 
-export default DatePicker
+const StyledDatePicker = styled(DatePicker)`
+  .date-picker__input {
+    width: 169px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+
+    &::-webkit-calendar-picker-indicator {
+      font-size: 20px;
+      color: ${MEDIUM_GREY};
+      background-color: transparent;
+    }
+    &::-webkit-datetime-edit {
+      padding: 11px;
+    }
+
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+`
+
+DatePicker.propTypes = {
+  onChange: PropTypes.func,
+  className: PropTypes.string,
+}
+
+export default StyledDatePicker

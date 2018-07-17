@@ -5,34 +5,35 @@ import { GREY } from '../../constants/colors'
 import CountrySelector from './CountrySelector'
 import Title from './Title'
 
-const LocationLayout = styled.div`
+const Location = ({ onSelectCountry, fetchNews, className }) => (
+  <div className={className}>
+    <div className="location__content--layout">
+      <Title>Location</Title>
+      <CountrySelector
+        onSelectCountry={onSelectCountry}
+        fetchNews={fetchNews}
+      />
+    </div>
+  </div>
+)
+
+const StyledLocation = styled(Location)`
   width: 300px;
   height: 127px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   background-color: ${GREY};
+
+  .location__content--layout {
+    margin-left: 40px;
+  }
 `
 
-const LocationContentLayout = styled.div`
-  margin-left: 40px;
-`
-
-const Loaction = ({ onSelectCountry, fetchNews }) => (
-  <LocationLayout>
-    <LocationContentLayout>
-      <Title>Location</Title>
-      <CountrySelector
-        onSelectCountry={onSelectCountry}
-        fetchNews={fetchNews}
-      />
-    </LocationContentLayout>
-  </LocationLayout>
-)
-
-Loaction.propTypes = {
+Location.propTypes = {
   onSelectCountry: PropTypes.func,
   fetchNews: PropTypes.func,
+  className: PropTypes.string,
 }
 
-export default Loaction
+export default StyledLocation
