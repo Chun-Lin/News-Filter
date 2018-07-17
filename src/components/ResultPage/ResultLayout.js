@@ -1,8 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledLayout = styled.div`
+const StyledResultLayout = styled.div`
   display: inline-block;
   vertical-align: top;
   width: calc(100% - 380px);
@@ -10,10 +8,4 @@ const StyledLayout = styled.div`
   overflow: scroll;
 `
 
-const ResultLayout = ({ children }) => <StyledLayout>{children}</StyledLayout>
-
-ResultLayout.propTypes = {
-  children: PropTypes.node,
-}
-
-export default ResultLayout
+export default StyledResultLayout

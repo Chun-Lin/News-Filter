@@ -11,53 +11,6 @@ import Title from './Title'
 import Img from './Img'
 import { WHITE } from '../../../constants/colors'
 
-const ResultListLayout = styled.div`
-  height: 220px;
-  width: 100%;
-  margin-top: 24px;
-  background-color: ${WHITE};
-`
-
-const ImgLayout = styled.div`
-  display: inline-block;
-  width: 220px;
-  height: 220px;
-`
-
-const InfoLayout = styled.div`
-  display: inline-block;
-  vertical-align: top;
-  width: calc(100% - 220px);
-  height: 100%;
-  padding: 24px 20px;
-`
-
-const DescriptionLayout = styled.div`
-  margin-top: 16px;
-`
-
-const AuthorCategoryLayout = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 16px;
-`
-
-const CategoryLayout = styled.div`
-  margin-left: 16px;
-`
-
-const LocationTimeLayout = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 16px;
-`
-
-const StyledAnchor = styled.a`
-  text-decoration: none;
-`
-
 const ResultList = ({
   source,
   imgSrc,
@@ -67,33 +20,80 @@ const ResultList = ({
   url,
   time,
   location,
+  className,
 }) => (
-  <ResultListLayout>
-    <StyledAnchor href={url}>
-      <ImgLayout>
+  <div className={className}>
+    <a className="result__anchor" href={url}>
+      <div className="result__img">
         <Img src={imgSrc} alt={title} />
-      </ImgLayout>
-    </StyledAnchor>
-    <InfoLayout>
-      <StyledAnchor href={url}>
+      </div>
+    </a>
+    <div className="result__info">
+      <a className="result__anchor" href={url}>
         <Title>{title}</Title>
-      </StyledAnchor>
-      <DescriptionLayout>
+      </a>
+      <div className="result__description">
         <Description>{description}</Description>
-      </DescriptionLayout>
-      <AuthorCategoryLayout>
+      </div>
+      <div className="result__author-category">
         <Author>{author}</Author>
-        <CategoryLayout>
+        <div className="result__category">
           <Category>{source.name}</Category>
-        </CategoryLayout>
-      </AuthorCategoryLayout>
-      <LocationTimeLayout>
+        </div>
+      </div>
+      <div className="result__location-time">
         <Location>{location}</Location>
         <TimeRange>{time}</TimeRange>
-      </LocationTimeLayout>
-    </InfoLayout>
-  </ResultListLayout>
+      </div>
+    </div>
+  </div>
 )
+
+const StyledResultList = styled(ResultList)`
+  height: 220px;
+  width: 100%;
+  margin-top: 24px;
+  background-color: ${WHITE};
+
+  .result__anchor {
+    text-decoration: none;
+    .result__img {
+      display: inline-block;
+      width: 220px;
+      height: 220px;
+    }
+  }
+
+  .result__info {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 220px);
+    height: 100%;
+    padding: 24px 20px;
+
+    .result__description {
+      margin-top: 16px;
+    }
+
+    .result__author-category {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 16px;
+
+      .result__category {
+        margin-left: 16px;
+      }
+    }
+
+    .result__location-time {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 16px;
+    }
+  }
+`
 
 ResultList.propTypes = {
   source: PropTypes.object,
@@ -104,6 +104,7 @@ ResultList.propTypes = {
   url: PropTypes.string,
   time: PropTypes.string,
   location: PropTypes.string,
+  className: PropTypes.string,
 }
 
-export default ResultList
+export default StyledResultList

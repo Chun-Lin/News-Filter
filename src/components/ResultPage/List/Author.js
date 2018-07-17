@@ -3,16 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { BLACK } from '../../../constants/colors'
 
-const StyledFont = styled.div`
+const StyledDiv = styled.div`
   font-size: 16px;
   font-weight: bold;
   color: ${BLACK};
 `
 
-const Author = ({ children }) => <StyledFont>{children}</StyledFont>
-
-Author.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Author
+export default StyledDiv

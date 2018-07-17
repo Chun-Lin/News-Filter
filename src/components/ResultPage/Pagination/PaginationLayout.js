@@ -1,8 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Layout = styled.div`
+const StyledPaginationLayout = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -11,10 +9,4 @@ const Layout = styled.div`
   height: 90px;
 `
 
-const PaginationLayout = ({ children }) => <Layout>{children}</Layout>
-
-PaginationLayout.propTypes = {
-  children: PropTypes.node,
-}
-
-export default PaginationLayout
+export default StyledPaginationLayout

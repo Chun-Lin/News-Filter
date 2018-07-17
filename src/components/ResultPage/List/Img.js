@@ -8,11 +8,4 @@ const StyledImg = styled.img`
   object-fit: cover;
 `
 
-const Img = ({ src, alt }) => <StyledImg src={src} alt={alt} />
-
-Img.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
-}
-
-export default Img
+export default StyledImg

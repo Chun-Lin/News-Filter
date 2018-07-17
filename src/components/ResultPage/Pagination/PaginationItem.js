@@ -3,23 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { WHITE, PURPLE } from '../../../constants/colors'
 
-const Layout = styled.div`
-  width: 41px;
-  height: 42px;
-  margin-left: 1px;
-  background-color: ${WHITE};
-  cursor: pointer;
-`
-
-const StyledItem = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  color: ${PURPLE};
-`
-
 class PaginationItem extends Component {
   clickHandler = () => {
     const { page, onSelectPage, fetchNews } = this.props
@@ -28,20 +11,40 @@ class PaginationItem extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, className } = this.props
     return (
-      <Layout>
-        <StyledItem onClick={this.clickHandler}>{children}</StyledItem>
-      </Layout>
+      <div className={className}>
+        <div className="pagination__item" onClick={this.clickHandler}>
+          {children}
+        </div>
+      </div>
     )
   }
 }
+
+const StyledPaginationItem = styled(PaginationItem)`
+  width: 41px;
+  height: 42px;
+  margin-left: 1px;
+  background-color: ${WHITE};
+  cursor: pointer;
+
+  .pagination__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: ${PURPLE};
+  }
+`
 
 PaginationItem.propTypes = {
   children: PropTypes.node,
   page: PropTypes.number,
   onSelectPage: PropTypes.func,
   fetchNews: PropTypes.func,
+  className: PropTypes.string,
 }
 
-export default PaginationItem
+export default StyledPaginationItem

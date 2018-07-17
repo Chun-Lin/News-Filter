@@ -3,29 +3,32 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { PURPLE } from '../../constants/colors'
 
-const Layout = styled.div`
-  margin-top: 24px;
-`
-
-const StyledFont = styled.span`
-  font-size: 24px;
-`
-
-const StyledCount = styled.span`
-  color: ${PURPLE};
-  font-weight: bold;
-`
-
-const ResultCount = ({ resultCount }) => (
-  <Layout>
-    <StyledFont>
-      Showing <StyledCount>{resultCount}</StyledCount> results by...
-    </StyledFont>
-  </Layout>
+const ResultCount = ({ resultCount, className }) => (
+  <div className={className}>
+    <span className="result-count__font--size">
+      Showing{' '}
+      <span className="result-count__font--color-weight">{resultCount}</span>{' '}
+      results by...
+    </span>
+  </div>
 )
+
+const StyledResultCount = styled(ResultCount)`
+  margin-top: 24px;
+
+  .result-count__font--size {
+    font-size: 24px;
+
+    .result-count__font--color-weight {
+      color: ${PURPLE};
+      font-weight: bold;
+    }
+  }
+`
 
 ResultCount.propTypes = {
   resultCount: PropTypes.number,
+  className: PropTypes.string
 }
 
-export default ResultCount
+export default StyledResultCount
