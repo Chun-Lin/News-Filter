@@ -4,13 +4,13 @@ import shortid from 'shortid'
 import connect from 'react-redux/lib/connect/connect'
 import dateFns from 'date-fns'
 
-import ResultLayout from '../components/ResultPage/ResultLayout'
-import ResultCount from '../components/ResultPage/ResultCount'
-import ResultList from '../components/ResultPage/List/ResultList'
-import Pagination from '../components/ResultPage/Pagination/Pagination'
-import Loading from '../components/ResultPage/Lodaing/Loading'
-import LoadingLayout from '../components/ResultPage/Lodaing/LoadingLayout'
-import { queryPage, fetchNews } from '../store/actions'
+import ResultLayout from '../../components/ResultPage/ResultLayout'
+import ResultCount from '../../components/ResultPage/ResultCount'
+import ResultList from '../../components/ResultPage/List/ResultList'
+import Pagination from '../../components/ResultPage/Pagination/Pagination'
+import Loading from '../../components/ResultPage/Lodaing/Loading'
+import LoadingLayout from '../../components/ResultPage/Lodaing/LoadingLayout'
+import { fetchNews, query } from './fetchNewsRedux'
 
 class ResultPage extends Component {
   render() {
@@ -61,7 +61,7 @@ class ResultPage extends Component {
         {articles.length !== 0 && (
           <Pagination
             pageCount={pageCount}
-            onSelectPage={page => this.props.queryPage(page)}
+            onSelectPage={page => this.props.query('page', page)}
             fetchNews={() => this.props.fetchNews()}
           />
         )}
@@ -75,19 +75,19 @@ ResultPage.propTypes = {
   articles: PropTypes.array,
   location: PropTypes.string,
   loading: PropTypes.bool,
-  queryPage: PropTypes.func,
+  query: PropTypes.func,
   fetchNews: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
   totalResults: state.fetch.totalResults,
   articles: state.fetch.articles,
-  location: state.query.queryString.country.label,
+  location: state.fetch.queryString.country.label,
   loading: state.shared.loading,
 })
 
 const mapDispatchToProps = {
-  queryPage,
+  query,
   fetchNews,
 }
 

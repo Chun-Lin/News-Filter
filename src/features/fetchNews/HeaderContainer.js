@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import _ from 'lodash'
 
-import { PURPLE } from '../constants/colors'
-import SearchBar from '../components/Header/SearchBar'
-import Logo from '../components/Header/Logo'
+import { PURPLE } from '../../constants/colors'
+import SearchBar from '../../components/Header/SearchBar'
+import Logo from '../../components/Header/Logo'
 
-import { querySearch, fetchNews, query } from '../store/actions/index'
+import { fetchNews, query } from './fetchNewsRedux'
 
 const StyledHeader = styled.div`
   width: 100%;

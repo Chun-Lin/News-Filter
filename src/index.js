@@ -14,9 +14,8 @@ import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
 } from '@fortawesome/fontawesome-free-solid'
-import fetchNewsReducer from './store/reducers/fetchNewsReducer'
-import queryStringReducer from './store/reducers/queryStringReducer'
-import sharedReducer from './store/reducers/sharedReducer'
+import fetchNewsReducer from './features/fetchNews/fetchNewsRedux'
+import sharedReducer from './features/shared/sharedRedux'
 
 let icons = null
 icons = [
@@ -36,7 +35,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 /* Reducers */
 const rootReducer = combineReducers({
   fetch: fetchNewsReducer,
-  query: queryStringReducer,
   shared: sharedReducer,
 })
 

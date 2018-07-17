@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import connect from 'react-redux/lib/connect/connect'
 import { bindActionCreators } from 'redux'
 
-import Location from '../components/Sidebar/Location'
-import Category from '../components/Sidebar/Category'
-import { query, fetchNews } from '../store/actions'
-import SidebarLayout from '../components/Sidebar/SidebarLayout'
-import ContentLayout from '../components/Sidebar/ContentLayout'
+import Location from '../../components/Sidebar/Location'
+import Category from '../../components/Sidebar/Category'
+import SidebarLayout from '../../components/Sidebar/SidebarLayout'
+import ContentLayout from '../../components/Sidebar/ContentLayout'
+import { fetchNews, query } from './fetchNewsRedux'
 
 class Sidebar extends Component {
   render() {
