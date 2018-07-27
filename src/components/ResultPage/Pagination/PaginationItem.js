@@ -39,7 +39,7 @@ const StyledPaginationItem = styled(PaginationItem)`
   }
 `
 
-PaginationItem.propTypes = {
+StyledPaginationItem.propTypes = {
   children: PropTypes.node,
   page: PropTypes.number,
   onSelectPage: PropTypes.func,

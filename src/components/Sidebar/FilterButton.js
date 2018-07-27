@@ -34,7 +34,7 @@ const StyledFilterButton = styled(FilterButton)`
   }
 `
 
-FilterButton.propTypes = {
+StyledFilterButton.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
   className: PropTypes.string,

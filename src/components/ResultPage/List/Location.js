@@ -21,7 +21,7 @@ const StyledLocation = styled(Location)`
   }
 `
 
-Location.propTypes = {
+StyledLocation.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 }

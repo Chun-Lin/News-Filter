@@ -81,7 +81,7 @@ const StyledCategory = styled(Category)`
   }
 `
 
-Category.propTypes = {
+StyledCategory.propTypes = {
   onSelectCategory: PropTypes.func,
   fetchNews: PropTypes.func,
 }

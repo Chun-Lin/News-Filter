@@ -95,7 +95,7 @@ const StyledResultList = styled(ResultList)`
   }
 `
 
-ResultList.propTypes = {
+StyledResultList.propTypes = {
   source: PropTypes.object,
   imgSrc: PropTypes.string,
   author: PropTypes.string,

@@ -21,7 +21,7 @@ const StyledTimeRange = styled(TimeRange)`
   }
 `
 
-TimeRange.propTypes = {
+StyledTimeRange.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 }

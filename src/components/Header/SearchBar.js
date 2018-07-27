@@ -95,7 +95,7 @@ const StyledSearchBar = styled(SearchBar)`
   }
 `
 
-SearchBar.propTypes = {
+StyledSearchBar.propTypes = {
   onQuerySearch: PropTypes.func,
   fetchNews: PropTypes.func,
 }

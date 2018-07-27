@@ -26,7 +26,7 @@ const StyledResultCount = styled(ResultCount)`
   }
 `
 
-ResultCount.propTypes = {
+StyledResultCount.propTypes = {
   resultCount: PropTypes.number,
   className: PropTypes.string
 }

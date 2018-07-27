@@ -32,7 +32,7 @@ const StyledLoading = styled(Loading)`
   }
 `
 
-Loading.propTypes = {
+StyledLoading.propTypes = {
   className: PropTypes.string,
 }
 

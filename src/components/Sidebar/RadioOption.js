@@ -21,7 +21,7 @@ const StyledRadioOption = styled(RadioOption)`
   }
 `
 
-RadioOption.propTypes = {
+StyledRadioOption.propTypes = {
   value: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,

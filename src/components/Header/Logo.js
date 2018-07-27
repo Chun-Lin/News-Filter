@@ -26,7 +26,7 @@ const StyledLogo = styled(Logo)`
   }
 `
 
-Logo.propTypes = {
+StyledLogo.propTypes = {
   children: PropTypes.node,
 }
 

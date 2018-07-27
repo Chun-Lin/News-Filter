@@ -57,7 +57,7 @@ const StyledDate = styled(Date)`
   }
 `
 
-Date.propTypes = {
+StyledDate.propTypes = {
   className: PropTypes.string,
 }
 

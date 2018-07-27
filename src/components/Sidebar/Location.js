@@ -30,7 +30,7 @@ const StyledLocation = styled(Location)`
   }
 `
 
-Location.propTypes = {
+StyledLocation.propTypes = {
   onSelectCountry: PropTypes.func,
   fetchNews: PropTypes.func,
   className: PropTypes.string,

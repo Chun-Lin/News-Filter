@@ -39,7 +39,7 @@ const StyledDatePicker = styled(DatePicker)`
   }
 `
 
-DatePicker.propTypes = {
+StyledDatePicker.propTypes = {
   onChange: PropTypes.func,
   className: PropTypes.string,
 }
