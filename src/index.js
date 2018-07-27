@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 import './index.css'
 import App from './App'
 
@@ -14,7 +15,9 @@ import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
 } from '@fortawesome/fontawesome-free-solid'
-import fetchNewsReducer from './features/fetchNews/fetchNewsRedux'
+import fetchNewsReducer, {
+  watchFetchNews,
+} from './features/fetchNews/fetchNewsRedux'
 import sharedReducer from './features/shared/sharedRedux'
 
 let icons = null
@@ -38,7 +41,15 @@ const rootReducer = combineReducers({
   shared: sharedReducer,
 })
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+const sagaMiddleware = createSagaMiddleware()
+
+const store = createStore(
+  rootReducer,
+  undefined,
+  composeEnhancers(applyMiddleware(thunk, sagaMiddleware)),
+)
+
+sagaMiddleware.run(watchFetchNews)
 
 const app = (
   <Provider store={store}>

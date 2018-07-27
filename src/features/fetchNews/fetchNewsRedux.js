@@ -3,6 +3,7 @@ import qs from 'query-string'
 import { API_KEY } from '../../constants'
 import { handleActions } from 'redux-actions'
 import produce from 'immer'
+import { put, select, takeLatest, fork } from 'redux-saga/effects'
 import { loadingShow, loadingHide } from '../shared/sharedRedux.js'
 
 /**
@@ -12,6 +13,7 @@ export const actionTypes = {
   FETCH_NEWS_INIT: 'FETCH_NEWS_INIT',
   FETCH_NEWS_SUCCESS: 'FETCH_NEWS_SUCCESS',
   FETCH_NEWS_FAIL: 'FETCH_NEWS_FAIL',
+  FETCH_NEWS: 'FETCH_NEWS',
   QUERY: 'QUERY',
 }
 
@@ -71,6 +73,10 @@ export const fetchNewsFail = err => ({
   error: err,
 })
 
+export const fetchNews = () => ({
+  type: actionTypes.FETCH_NEWS,
+})
+
 export const query = (key, value) => ({
   type: actionTypes.QUERY,
   payload: { [key]: value },
@@ -79,11 +85,16 @@ export const query = (key, value) => ({
 /**
  * ------------ Side Effects ------------
  */
-export const fetchNews = () => async (dispatch, getState) => {
-  dispatch(fetchNewsInit())
-  dispatch(loadingShow())
-  const { searchTerm, country, category, page } = getState().fetch.queryString
 
+export function* fetchNewsSaga(action) {
+  yield put(fetchNewsInit())
+  yield put(loadingShow())
+
+  /* get store data */
+  const store = yield select()
+  const { searchTerm, country, category, page } = store.fetch.queryString
+
+  /* queryString data */
   const queryObject = {
     apiKey: API_KEY || undefined,
     q: searchTerm || undefined,
@@ -96,12 +107,20 @@ export const fetchNews = () => async (dispatch, getState) => {
   const queryString = ['?', queryStringified].join('')
 
   console.log(queryString)
+
   try {
-    const res = await axios.get(queryString)
-    dispatch(fetchNewsSuccess(res.data.totalResults, res.data.articles))
+    const res = yield axios.get(queryString)
+    yield put(fetchNewsSuccess(res.data.totalResults, res.data.articles))
   } catch (err) {
-    dispatch(fetchNewsFail(err.message))
+    yield put(fetchNewsFail(err.message))
   } finally {
-    dispatch(loadingHide())
+    yield put(loadingHide())
   }
+}
+
+/**
+ * ------------ Saga Effects ------------
+ */
+export function* watchFetchNews() {
+  yield fork(takeLatest, actionTypes.FETCH_NEWS, fetchNewsSaga)
 }
