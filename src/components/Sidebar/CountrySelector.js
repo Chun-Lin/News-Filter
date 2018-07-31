@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import countryList from 'country-list'
+import countryList from 'react-select-country-list'
 import Select from 'react-select'
 
 const customStyles = {

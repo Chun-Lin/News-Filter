@@ -1,1 +1,1 @@
-export {queryStrinify} from './queryString'
+export { queryStrinify } from './queryString'
