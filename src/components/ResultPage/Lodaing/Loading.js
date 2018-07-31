@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { bounceIn } from 'react-animations'
-import { PURPLE, WHITE } from '../../../constants/colors'
+import { PURPLE, WHITE } from '../../../shared/constants'
 
 const Loading = ({ className }) => (
   <div className={className}>

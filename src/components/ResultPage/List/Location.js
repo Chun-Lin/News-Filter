@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { DEEP_GREY } from '../../../constants/colors'
+import { DEEP_GREY } from '../../../shared/constants'
 
 const Location = ({ children, className }) => (
   <div className={className}>

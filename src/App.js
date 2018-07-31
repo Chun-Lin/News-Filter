@@ -6,7 +6,7 @@ import Header from './features/fetchNews/HeaderContainer'
 import Sidebar from './features/fetchNews/SidebarContainer'
 import ResultPage from './features/fetchNews/ResultPageContainer'
 import 'nodep-date-input-polyfill'
-import { LIGHT_GREY } from './constants/colors'
+import { LIGHT_GREY } from './shared/constants'
 
 const StyledMainLayout = styled.main`
   margin-top: 92px;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import dateFns from 'date-fns'
 
-import { MEDIUM_GREY } from '../../assets/colors'
+import { MEDIUM_GREY } from '../../shared/constants'
 
 const DatePicker = ({ onChange, className }) => (
   <div className={className}>

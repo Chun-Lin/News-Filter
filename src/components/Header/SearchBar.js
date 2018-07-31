@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { WHITE } from '../../constants/colors'
+import { WHITE } from '../../shared/constants'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 class SearchBar extends Component {

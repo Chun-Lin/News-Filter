@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { PURPLE } from '../../constants/colors'
+import { PURPLE } from '../../shared/constants'
 
 const ResultCount = ({ resultCount, className }) => (
   <div className={className}>

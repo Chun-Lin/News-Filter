@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { WHITE, MEDIUM_GREY } from '../../../constants/colors'
+import { WHITE, MEDIUM_GREY } from '../../../shared/constants'
 
 const Category = ({ children, className }) => (
   <div className={className}>

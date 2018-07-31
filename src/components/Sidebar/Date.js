@@ -4,7 +4,7 @@ import DatePicker from './DatePicker'
 import styled from 'styled-components'
 import Title from './Title'
 
-import { GREY, MEDIUM_GREY } from '../../assets/colors'
+import { GREY, MEDIUM_GREY } from '../../shared/constants'
 
 const Date = ({ className }) => (
   <div className={className}>

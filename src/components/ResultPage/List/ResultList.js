@@ -9,7 +9,7 @@ import Author from './Author'
 import Description from './Description'
 import Title from './Title'
 import Img from './Img'
-import { WHITE } from '../../../constants/colors'
+import { WHITE } from '../../../shared/constants'
 
 const ResultList = ({
   source,

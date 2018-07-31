@@ -1,5 +1,5 @@
 import axios from '../../axiosInstance'
-import { API_KEY } from '../../constants'
+import { API_KEY } from '../../shared/constants'
 import { handleActions } from 'redux-actions'
 import produce from 'immer'
 import { put, select, takeLatest, fork } from 'redux-saga/effects'

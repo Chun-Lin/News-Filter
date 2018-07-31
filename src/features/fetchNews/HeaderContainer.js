@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import _ from 'lodash'
 
-import { PURPLE } from '../../constants/colors'
+import { PURPLE } from '../../shared/constants'
 import SearchBar from '../../components/Header/SearchBar'
 import Logo from '../../components/Header/Logo'
 
