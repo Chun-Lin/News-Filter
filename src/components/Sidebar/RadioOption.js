@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const RadioOption = ({ checked, onChange, value, children }) => (
-  <label>
+const RadioOption = ({ checked, onChange, value, children, className }) => (
+  <label className={className}>
     <input
       className="input__radio--layout"
       type="radio"

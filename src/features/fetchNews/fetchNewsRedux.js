@@ -1,10 +1,10 @@
 import axios from '../../axiosInstance'
-import qs from 'query-string'
 import { API_KEY } from '../../constants'
 import { handleActions } from 'redux-actions'
 import produce from 'immer'
 import { put, select, takeLatest, fork } from 'redux-saga/effects'
-import { loadingShow, loadingHide } from '../shared/sharedRedux.js'
+import { loadingShow, loadingHide } from '../shared/sharedRedux'
+import { queryStrinify } from '../../shared/utils'
 
 /**
  * ------------ Action ------------
@@ -103,9 +103,9 @@ export function* fetchNewsSaga(action) {
     page: page || undefined,
   }
 
-  const queryStringified = qs.stringify(queryObject)
-  const queryString = ['?', queryStringified].join('')
-
+  // const queryStringified = qs.stringify(queryObject)
+  // const queryString = ['?', queryStringified].join('')
+  const queryString = queryStrinify(queryObject)
   console.log(queryString)
 
   try {
