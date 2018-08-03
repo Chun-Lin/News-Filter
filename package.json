@@ -35,5 +35,8 @@
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "redux-saga-test-plan": "^4.0.0-beta.1"
   }
 }

@@ -86,13 +86,15 @@ export const query = (key, value) => ({
  * ------------ Side Effects ------------
  */
 
+export const qsSelector = state=> state.fetch.queryString
+
 export function* fetchNewsSaga(action) {
   yield put(fetchNewsInit())
   yield put(loadingShow())
 
   /* get store data */
-  const store = yield select()
-  const { searchTerm, country, category, page } = store.fetch.queryString
+  const storeQueryString = yield select(qsSelector)
+  const { searchTerm, country, category, page } = storeQueryString
 
   /* queryString data */
   const queryObject = {
@@ -100,7 +102,7 @@ export function* fetchNewsSaga(action) {
     q: searchTerm || undefined,
     country: country ? country.value.toLowerCase() : undefined,
     category: category || undefined,
-    page: page || undefined,
+    page: page || 1,
   }
 
   const queryString = queryStrinify(queryObject)
