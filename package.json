@@ -37,6 +37,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "redux-saga-test-plan": "^4.0.0-beta.1"
+    "redux-saga-test-plan": "3.7.0"
   }
 }

@@ -1,7 +1,10 @@
-import { testSaga, expectSaga } from 'redux-saga-test-plan'
-import { fetchNewsSaga, qsSelector } from './fetchNewsRedux'
+import { put, select } from 'redux-saga/effects'
+import { expectSaga, testSaga } from 'redux-saga-test-plan'
 
+import fetchNewsReducer from './fetchNewsRedux'
+import sharedReducer from '../shared/sharedRedux'
 import axios from '../../axiosInstance'
+import { fetchNewsSaga, qsSelector } from './fetchNewsRedux'
 
 const queryString = '?apiKey=11dd82e2652347c7a55a29cf55ec25e9&page=1'
 
@@ -50,3 +53,96 @@ describe('fetchNewsSaga Unit Tests', () => {
   })
 })
 
+function* fetchNewsInit() {
+  yield put({ type: actionTypes.FETCH_NEWS_INIT })
+}
+
+function* loadingShow() {
+  yield put({ type: actionTypes.LOADING_SHOW })
+}
+
+function* fetchNewsSuccess() {
+  yield put({
+    type: actionTypes.FETCH_NEWS_SUCCESS,
+    totalResults: 0,
+    articles: [],
+  })
+}
+
+function* fetchNewsFail() {
+  yield put({
+    type: actionTypes.FETCH_NEWS_FAIL,
+    error: 'FAILED',
+  })
+}
+
+function* loadingHide() {
+  yield put({ type: actionTypes.LOADING_HIDE })
+}
+
+describe('fetchNewsSaga reducer integration tests', () => {
+  it('should initial articles, totalResults, and error', async () => {
+    return expectSaga(fetchNewsInit)
+      .withReducer(fetchNewsReducer)
+      .hasFinalState({
+        articles: [],
+        totalResults: 0,
+        error: '',
+        queryString: {
+          searchTerm: '',
+          country: '',
+          category: '',
+          page: 1,
+        },
+      })
+      .run()
+  })
+
+  it('should show loading', async () => {
+    return expectSaga(loadingShow)
+      .withReducer(sharedReducer)
+      .hasFinalState({
+        loading: true,
+      })
+  })
+
+  it('should update store data correctly when response successfully', async () => {
+    return expectSaga(fetchNewsSuccess)
+      .withReducer(fetchNewsReducer)
+      .hasFinalState({
+        articles: [],
+        totalResults: 0,
+        error: '',
+        queryString: {
+          searchTerm: '',
+          country: '',
+          category: '',
+          page: 1,
+        },
+      })
+  })
+
+  it('should update store data correctly when response fail', async () => {
+    return expectSaga(fetchNewsFail)
+      .withReducer(fetchNewsReducer)
+      .hasFinalState({
+        articles: [],
+        totalResults: 0,
+        error: 'FAILED',
+        queryString: {
+          searchTerm: '',
+          country: '',
+          category: '',
+          page: 1,
+        },
+      })
+  })
+
+  it('should hide loading', async () => {
+    return expectSaga(loadingHide)
+      .withReducer(sharedReducer)
+      .hasFinalState({
+        loading: false,
+      })
+  })
+})

@@ -20,7 +20,7 @@ export const actionTypes = {
 /**
  * ------------ Reducers ------------
  */
-const initState = {
+export const fetchNewsInitState = {
   articles: [],
   totalResults: 0,
   error: '',
@@ -32,12 +32,12 @@ const initState = {
   },
 }
 
-export default handleActions(
+const fetchNewsReducer = handleActions(
   {
     [actionTypes.FETCH_NEWS_INIT]: produce(draft => {
-      draft.articles = initState.articles
-      draft.totalResults = initState.totalResults
-      draft.error = initState.error
+      draft.articles = fetchNewsInitState.articles
+      draft.totalResults = fetchNewsInitState.totalResults
+      draft.error = fetchNewsInitState.error
     }),
     [actionTypes.FETCH_NEWS_SUCCESS]: produce(
       (draft, { totalResults, articles }) => {
@@ -52,8 +52,10 @@ export default handleActions(
       draft.queryString = { ...draft.queryString, ...action.payload }
     }),
   },
-  initState,
+  fetchNewsInitState,
 )
+
+export default fetchNewsReducer
 
 /**
  * ------------ Action Creators ------------
@@ -86,7 +88,7 @@ export const query = (key, value) => ({
  * ------------ Side Effects ------------
  */
 
-export const qsSelector = state=> state.fetch.queryString
+export const qsSelector = state => state.fetch.queryString
 
 export function* fetchNewsSaga(action) {
   yield put(fetchNewsInit())

@@ -13,11 +13,11 @@ export const actionTypes = {
 /**
  * ------------ Reducers ------------
  */
-const initState = {
+export const sharedInitState = {
   loading: false,
 }
 
-export default handleActions(
+const sharedReducer = handleActions(
   {
     [actionTypes.LOADING_SHOW]: produce(draft => {
       draft.loading = true
@@ -26,8 +26,10 @@ export default handleActions(
       draft.loading = false
     }),
   },
-  initState,
+  sharedInitState,
 )
+
+export default sharedReducer
 
 /**
  * ------------ Action Creators ------------
