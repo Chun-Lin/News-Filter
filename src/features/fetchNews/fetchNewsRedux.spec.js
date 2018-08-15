@@ -5,8 +5,18 @@ import fetchNewsReducer from './fetchNewsRedux'
 import sharedReducer from '../shared/sharedRedux'
 import axios from '../../axiosInstance'
 import { fetchNewsSaga, qsSelector } from './fetchNewsRedux'
+import { client } from './fetchNewsRedux'
+import { getArticles, queryStrinify } from '../../shared/utils'
+import { API_KEY } from '../../shared/constants'
+import { getNewsGql } from '../../shared/gqls'
 
-const queryString = '?apiKey=11dd82e2652347c7a55a29cf55ec25e9&page=1'
+const queryString = queryStrinify({
+  apiKey: API_KEY || undefined,
+  q: '',
+  country: undefined,
+  category: undefined,
+  page: 1,
+})
 
 const actionTypes = {
   FETCH_NEWS_INIT: 'FETCH_NEWS_INIT',
@@ -28,13 +38,8 @@ describe('fetchNewsSaga Unit Tests', () => {
       .put({ type: actionTypes.LOADING_SHOW })
       .next()
       .select(qsSelector)
-      .next({
-        searchTerm: '',
-        country: '',
-        category: '',
-        page: 1,
-      })
-      .call(axios.get, queryString)
+      .next(queryString)
+      .call(getArticles, getNewsGql, queryString)
       .next({
         data: {
           totalResults: 0,

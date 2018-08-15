@@ -1,10 +1,11 @@
 import axios from '../../axiosInstance'
-import { API_KEY } from '../../shared/constants'
+import { API_KEY, BASE_URL } from '../../shared/constants'
 import { handleActions } from 'redux-actions'
 import produce from 'immer'
 import { put, select, takeLatest, fork, call } from 'redux-saga/effects'
 import { loadingShow, loadingHide } from '../shared/sharedRedux'
-import { queryStrinify } from '../../shared/utils'
+import { queryStrinify, getArticles } from '../../shared/utils'
+import { getNewsGql } from '../../shared/gqls'
 
 /**
  * ------------ Action ------------
@@ -97,7 +98,8 @@ export function* fetchNewsSaga(action) {
   /* get store data */
   const storeQueryString = yield select(qsSelector)
   const { searchTerm, country, category, page } = storeQueryString
-
+  console.log(storeQueryString)
+  
   /* queryString data */
   const queryObject = {
     apiKey: API_KEY || undefined,
@@ -111,8 +113,14 @@ export function* fetchNewsSaga(action) {
   console.log(queryString)
 
   try {
-    const res = yield call(axios.get, queryString)
-    yield put(fetchNewsSuccess(res.data.totalResults, res.data.articles))
+    const res = yield call(getArticles, getNewsGql, queryString)
+    console.log(res)
+    yield put(
+      fetchNewsSuccess(
+        res.data.headlines.totalResults,
+        res.data.headlines.articles,
+      ),
+    )
   } catch (err) {
     yield put(fetchNewsFail(err.message))
   } finally {

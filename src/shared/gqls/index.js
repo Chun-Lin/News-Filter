@@ -1,0 +1,1 @@
+export { getNewsGql } from './getNewsGql'
